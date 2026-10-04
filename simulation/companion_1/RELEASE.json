@@ -1,0 +1,29 @@
+{
+  "version": "companion-1",
+  "date": "2026-09-30",
+  "status": "LOCAL_UNPUBLISHED_CANDIDATE",
+  "upstream_numerical_zip_sha256": "766799ab8c668b891dd40329b6461535a940f5fd4daef0549ab49eb01032932e",
+  "original_code_and_data_unchanged": true,
+  "journal_documents_included": false,
+  "hosted_url": null,
+  "license_selected": false,
+  "numerical_routes_unchanged": true,
+  "document_local_ids": [
+    "C01",
+    "C02",
+    "C03",
+    "C04",
+    "C05",
+    "C06",
+    "C07",
+    "C08",
+    "C09"
+  ],
+  "table_local_ids": [
+    "C1",
+    "C2",
+    "C3",
+    "C4"
+  ],
+  "current_manifest": "SHA256SUMS.txt"
+}

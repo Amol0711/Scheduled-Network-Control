@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Evidence Index</title>
+  <style>
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <style>
+  html{font-family:system-ui,sans-serif;line-height:1.55;color:#17232a;background:white}body{max-width:1120px;margin:2.5rem auto;padding:0 1.5rem}h1{border-bottom:1px solid #cfd9dc;padding-bottom:.4rem;margin-top:2rem}h2{margin-top:1.8rem}a{color:#155c77}table{border-collapse:collapse;display:block;overflow:auto;width:100%;font-size:.94rem}th,td{border-bottom:1px solid #dce2e5;padding:.55rem;text-align:left;vertical-align:top}th{background:#f2f6f7}code{font-family:ui-monospace,monospace;font-size:.91em;overflow-wrap:anywhere}pre{background:#f2f6f7;padding:1rem;overflow:auto}math[display="block"]{overflow:auto;max-width:100%;padding:.5rem 0}nav{padding:1rem;background:#f6f8f8}.title{font-size:2rem}.subtitle{color:#53676f}@media print{body{max-width:none;margin:0}a{color:inherit}}
+  </style>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Evidence Index</h1>
+</header>
+<h1 id="evidence-to-codedata-index">Evidence-to-code/data index</h1>
+<p>All paths are local to this snapshot. Numerical records preserve
+their original filenames. The archive contains no journal source or
+principal theorem proofs. <code>quick</code> reads the primary arrays;
+<code>reference</code> produces targeted deterministic/calculation
+checks; <code>full</code> regenerates the complete numerical study with
+explicit confirmation. A route’s successful execution is not a
+mathematical proof.</p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Journal evidence</th>
+<th style="text-align: left;">Companion section</th>
+<th style="text-align: left;">Data and execution</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Figure 2(a,b), time histories</td>
+<td style="text-align: left;"><a
+href="COMPUTATIONAL_COMPANION.html#c04-main">C04</a> and <a
+href="COMPUTATIONAL_COMPANION.html#c03">C03</a></td>
+<td
+style="text-align: left;"><code>data/figure_series/deterministic_timeseries.csv</code>;
+<code>code/figure_series.py</code>, <code>reference</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Figure 2(c), graph rates</td>
+<td style="text-align: left;"><a
+href="COMPUTATIONAL_COMPANION.html#c04-graphs">C04</a></td>
+<td
+style="text-align: left;"><code>data/records/exponent_validation.csv</code>;
+<code>targeted/protocol_reference.py</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Figure 2(d), displacement</td>
+<td style="text-align: left;"><a
+href="COMPUTATIONAL_COMPANION.html#c04-displacement">C04</a></td>
+<td
+style="text-align: left;"><code>data/records/tangential_scaling.csv</code>;
+<code>targeted/protocol_reference.py</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Figure 2(e), scalar accuracy</td>
+<td style="text-align: left;"><a
+href="COMPUTATIONAL_COMPANION.html#c09-scalar">C09</a></td>
+<td
+style="text-align: left;"><code>data/figure_series/optimized_noise_scaling.csv</code>;
+<code>code/schedule_noise.py</code>,
+<code>code/dirichlet_envelope.py</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Figure 2(f), phase tails</td>
+<td style="text-align: left;"><a
+href="COMPUTATIONAL_COMPANION.html#c05">C05</a></td>
+<td
+style="text-align: left;"><code>data/records/phase_map_validation.csv</code>;
+<code>code/network_experiments.py</code>,
+<code>targeted/phase_reference.py</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Local numerical trajectory (Figure
+S1)</td>
+<td style="text-align: left;"><a
+href="COMPUTATIONAL_COMPANION.html#c08">C08</a></td>
+<td
+style="text-align: left;"><code>data/figure_series/local_certified_trajectory.csv</code>;
+<code>code/local_certificate.py</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Main Table I / former Table S1</td>
+<td style="text-align: left;"><a
+href="COMPUTATIONAL_COMPANION.html#table-c1">Table C1</a></td>
+<td
+style="text-align: left;"><code>data/records/comparison_metrics.csv</code>;
+<code>code/comparison_metrics.py</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Former Table S2</td>
+<td style="text-align: left;"><a
+href="COMPUTATIONAL_COMPANION.html#table-c2">Table C2</a></td>
+<td
+style="text-align: left;"><code>data/statistics/stochastic_cap_statistics.csv</code>;
+<code>quick</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Former Table S3</td>
+<td style="text-align: left;"><a
+href="COMPUTATIONAL_COMPANION.html#table-c3">Table C3</a></td>
+<td
+style="text-align: left;"><code>data/statistics/stochastic_step_statistics.csv</code>;
+<code>quick</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Former Table S4</td>
+<td style="text-align: left;"><a
+href="COMPUTATIONAL_COMPANION.html#table-c4">Table C4</a></td>
+<td
+style="text-align: left;"><code>data/statistics/stochastic_richardson_statistics.csv</code>;
+<code>quick</code></td>
+</tr>
+</tbody>
+</table>
+<p>Figure 1 is a geometric schematic, not a numerical record. Its
+artwork and theoretical meaning remain in the journal. The
+local-certificate figure’s complete analytic construction also remains
+journal material.</p>
+<h2 id="section-asset-directory">Section asset directory</h2>
+<h3 id="c01-model-metric-and-experiment-families">C01 — Model, metric
+and experiment families</h3>
+<p><a href="COMPUTATIONAL_COMPANION.html#c01">Companion location</a></p>
+<ul>
+<li><a href="../docs/MODEL.md"><code>docs/MODEL.md</code></a></li>
+<li><a
+href="../docs/NUMERICAL_PROTOCOL.md"><code>docs/NUMERICAL_PROTOCOL.md</code></a></li>
+<li><a
+href="../config/experiments.json"><code>config/experiments.json</code></a></li>
+<li><a
+href="../code/network_experiments.py"><code>code/network_experiments.py</code></a></li>
+<li><a
+href="../code/stochastic_network.py"><code>code/stochastic_network.py</code></a></li>
+</ul>
+<h3 id="c02-deterministic-schedules-and-complete-comparison">C02 —
+Deterministic schedules and complete comparison</h3>
+<p><a href="COMPUTATIONAL_COMPANION.html#c02">Companion location</a></p>
+<ul>
+<li><a
+href="../data/records/comparison_metrics.csv"><code>data/records/comparison_metrics.csv</code></a></li>
+<li><a
+href="../data/records/method_metrics.csv"><code>data/records/method_metrics.csv</code></a></li>
+<li><a
+href="../data/records/functional_hierarchy_values.csv"><code>data/records/functional_hierarchy_values.csv</code></a></li>
+<li><a
+href="../data/figure_series/comparison_metrics.csv"><code>data/figure_series/comparison_metrics.csv</code></a></li>
+</ul>
+<h3 id="c03-full-clock-energy-and-phase-diagnostics">C03 — Full-clock
+energy and phase diagnostics</h3>
+<p><a href="COMPUTATIONAL_COMPANION.html#c03">Companion location</a></p>
+<ul>
+<li><a
+href="../data/targeted_reference/effort/full_clock_snapshot.csv"><code>data/targeted_reference/effort/full_clock_snapshot.csv</code></a></li>
+<li><a
+href="../data/targeted_reference/effort/full_clock_cutoff_series.csv"><code>data/targeted_reference/effort/full_clock_cutoff_series.csv</code></a></li>
+<li><a
+href="../data/targeted_reference/protocols/full_clock_phase_grid.csv"><code>data/targeted_reference/protocols/full_clock_phase_grid.csv</code></a></li>
+<li><a
+href="../targeted/effort_reference.py"><code>targeted/effort_reference.py</code></a></li>
+</ul>
+<h3 id="c04-contraction-graph-and-displacement-protocols">C04 —
+Contraction, graph and displacement protocols</h3>
+<p><a href="COMPUTATIONAL_COMPANION.html#c04">Companion location</a></p>
+<ul>
+<li><a
+href="../data/records/exponent_validation.csv"><code>data/records/exponent_validation.csv</code></a></li>
+<li><a
+href="../data/records/tangential_scaling.csv"><code>data/records/tangential_scaling.csv</code></a></li>
+<li><a
+href="../data/targeted_reference/protocols/graph_protocol_and_reintegration.csv"><code>data/targeted_reference/protocols/graph_protocol_and_reintegration.csv</code></a></li>
+<li><a
+href="../data/targeted_reference/protocols/displacement_protocol_and_reintegration.csv"><code>data/targeted_reference/protocols/displacement_protocol_and_reintegration.csv</code></a></li>
+<li><a
+href="../targeted/protocol_reference.py"><code>targeted/protocol_reference.py</code></a></li>
+</ul>
+<h3 id="c05-terminal-phase-curve-and-endpoint-diagnostics">C05 —
+Terminal-phase curve and endpoint diagnostics</h3>
+<p><a href="COMPUTATIONAL_COMPANION.html#c05">Companion location</a></p>
+<ul>
+<li><a
+href="../data/records/phase_map_validation.csv"><code>data/records/phase_map_validation.csv</code></a></li>
+<li><a
+href="../data/figure_series/phase_map_validation.csv"><code>data/figure_series/phase_map_validation.csv</code></a></li>
+<li><a
+href="../data/targeted_reference/phase/phase_reference.json"><code>data/targeted_reference/phase/phase_reference.json</code></a></li>
+<li><a
+href="../targeted/phase_reference.py"><code>targeted/phase_reference.py</code></a></li>
+</ul>
+<h3 id="c06-complete-primary-stochastic-cap-evidence">C06 — Complete
+primary stochastic cap evidence</h3>
+<p><a href="COMPUTATIONAL_COMPANION.html#c06">Companion location</a></p>
+<ul>
+<li><a
+href="../data/records/stochastic_crn_pathwise_terminal_mse.npz"><code>data/records/stochastic_crn_pathwise_terminal_mse.npz</code></a></li>
+<li><a
+href="../data/statistics/stochastic_cap_statistics.csv"><code>data/statistics/stochastic_cap_statistics.csv</code></a></li>
+<li><a
+href="../data/records/stochastic_summary.json"><code>data/records/stochastic_summary.json</code></a></li>
+<li><a
+href="../code/table_reporting.py"><code>code/table_reporting.py</code></a></li>
+</ul>
+<h3 id="c07-covariance-aware-vertex-and-nested-refinement">C07 —
+Covariance-aware vertex and nested refinement</h3>
+<p><a href="COMPUTATIONAL_COMPANION.html#c07">Companion location</a></p>
+<ul>
+<li><a
+href="../data/statistics/stochastic_quadratic_fit.json"><code>data/statistics/stochastic_quadratic_fit.json</code></a></li>
+<li><a
+href="../data/statistics/stochastic_step_statistics.csv"><code>data/statistics/stochastic_step_statistics.csv</code></a></li>
+<li><a
+href="../data/statistics/stochastic_richardson_statistics.csv"><code>data/statistics/stochastic_richardson_statistics.csv</code></a></li>
+<li><a
+href="../data/statistics/stochastic_sample_split.csv"><code>data/statistics/stochastic_sample_split.csv</code></a></li>
+<li><a
+href="../targeted/statistics_reference.py"><code>targeted/statistics_reference.py</code></a></li>
+</ul>
+<h3 id="c08-numerical-evaluation-of-analytic-certificates">C08 —
+Numerical evaluation of analytic certificates</h3>
+<p><a href="COMPUTATIONAL_COMPANION.html#c08">Companion location</a></p>
+<ul>
+<li><a
+href="../data/records/local_certificate.json"><code>data/records/local_certificate.json</code></a></li>
+<li><a
+href="../data/records/local_initial_states.csv"><code>data/records/local_initial_states.csv</code></a></li>
+<li><a
+href="../data/records/local_solver_comparison.csv"><code>data/records/local_solver_comparison.csv</code></a></li>
+<li><a
+href="../data/records/local_trajectory.csv"><code>data/records/local_trajectory.csv</code></a></li>
+<li><a
+href="../data/figure_series/local_certified_trajectory.csv"><code>data/figure_series/local_certified_trajectory.csv</code></a></li>
+<li><a
+href="../code/benchmark_certificate.py"><code>code/benchmark_certificate.py</code></a></li>
+</ul>
+<h3 id="c09-scalar-and-modal-diagnostic-records-and-supersessions">C09 —
+Scalar and modal diagnostic records and supersessions</h3>
+<p><a href="COMPUTATIONAL_COMPANION.html#c09">Companion location</a></p>
+<ul>
+<li><a
+href="../data/records/modal_lambert_remainder_and_slopes.csv"><code>data/records/modal_lambert_remainder_and_slopes.csv</code></a></li>
+<li><a
+href="../data/records/asymptotic_power_p3_accuracy.csv"><code>data/records/asymptotic_power_p3_accuracy.csv</code></a></li>
+<li><a
+href="../data/targeted_reference/power/historical_power_p3_accuracy.csv"><code>data/targeted_reference/power/historical_power_p3_accuracy.csv</code></a></li>
+<li><a
+href="../data/targeted_reference/power/power_p3_successor.csv"><code>data/targeted_reference/power/power_p3_successor.csv</code></a></li>
+<li><a
+href="../config/supersession.json"><code>config/supersession.json</code></a></li>
+<li><a
+href="../targeted/power_reference.py"><code>targeted/power_reference.py</code></a></li>
+</ul>
+</body>
+</html>

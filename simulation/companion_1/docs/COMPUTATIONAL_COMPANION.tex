@@ -1,0 +1,1079 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[margin=20mm]{geometry}
+\usepackage{amsmath,amssymb,array,longtable,booktabs,calc,graphicx}
+\usepackage{microtype,upquote,xurl,etoolbox,needspace}
+\usepackage[unicode,hidelinks]{hyperref}
+\hypersetup{pdftitle={Computational Methods and Complete Numerical Records},pdfauthor={},pdfsubject={Scheduled network control numerical methods and records},pdfcreator={LaTeX},pdfkeywords={numerical reproducibility, scheduled network control}}
+\pdfinfoomitdate=1
+\pdftrailerid{}
+\pdfsuppressptexinfo=15
+\DeclareUnicodeCharacter{2212}{\ensuremath{-}}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlength{\emergencystretch}{2em}
+\setcounter{secnumdepth}{0}
+\providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\AtBeginEnvironment{longtable}{\small\setlength{\tabcolsep}{3pt}}
+\usepackage{fancyhdr}
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{\small Scheduled network control}
+\fancyhead[R]{\small Computational companion 1}
+\fancyfoot[C]{\thepage}
+\setlength{\headheight}{14pt}
+\title{\textbf{Computational Methods and Complete Numerical
+Records}\\[6pt]\large Scheduled network control --- computational
+companion 1}
+\author{}\date{Version 1 · 30 September 2026}
+\begin{document}
+\maketitle
+\thispagestyle{fancy}
+\tableofcontents
+\clearpage
+\section{Reading and execution guide}\label{guide}
+
+This companion specifies the numerical models, experiments, estimators
+and recorded results in this snapshot. It supplies complete readable
+records alongside the executable code and machine-readable data. The
+mathematical arguments establishing control guarantees remain in the
+journal documents. Computational checks and numerical evaluation of
+certificate constants do not replace those arguments.
+
+The original scientific kernels and recorded data are preserved. Tables
+C1--C4 reproduce the journal-version numerical tables without changing
+their cells, units or uncertainty interpretation. Their former
+identifiers S1--S4 are mapped in \href{RECORD_LOCATIONS.md}{Record
+locations}. Numerical equations below have local identifiers E01--E10,
+independent of journal numbering. C01--C09 are stable section
+identifiers. The \href{EVIDENCE_INDEX.md}{evidence index} maps each
+figure panel and table to its methods, data and code.
+
+Read this document as \href{COMPUTATIONAL_COMPANION.pdf}{PDF}, as the
+\href{COMPUTATIONAL_COMPANION.html}{offline HTML edition}, or as
+Markdown. All document and data links are relative to the snapshot. No
+external service, authentication or network connection is needed to read
+the supplied PDF or HTML. No hosted address has been assigned to this
+local candidate.
+
+\subsection{Select the appropriate execution
+route}\label{select-the-appropriate-execution-route}
+
+Run from the extracted \texttt{simulation\_code\_data} directory, with
+the pinned numerical dependencies already installed. Each result
+directory must be outside the snapshot. Existing outputs are not
+reference inputs for a different route.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Route
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Command
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+What is newly calculated
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Integrity & \texttt{python\ reproduce.py\ verify} & Checksums and exact
+file inventory only; standard library. \\
+Quick &
+\texttt{python\ reproduce.py\ quick\ -\/-output-dir\ ../quick\_results}
+& Statistics from sealed path arrays and certificate diagnostics,
+without new trajectories. \\
+Targeted references &
+\texttt{python\ reproduce.py\ reference\ -\/-output-dir\ ../reference\_results}
+& High-precision power check, physical-effort integration, deterministic
+protocol replay, endpoint diagnostics and covariance-aware statistics.
+No stochastic trajectories. \\
+Deterministic &
+\texttt{python\ reproduce.py\ deterministic\ -\/-output-dir\ ../deterministic\_results}
+& Figure-series/local-trajectory reconstruction, with the documented
+reuse of supporting records. \\
+Same-stream replay &
+\texttt{python\ reproduce.py\ replay\ -\/-output-dir\ ../replay\_results}
+& The first 200 primary paths and corresponding coarse paths; not
+independent replication. \\
+Full &
+\texttt{python\ reproduce.py\ full\ -\/-confirm-full\ -\/-output-dir\ ../full\_results}
+& The complete distributed pipeline, including 20,000 primary and nested
+10,000 stochastic paths, then the targeted stages. \\
+\end{longtable}
+
+Additional diagnostic and chunked-generation commands are documented in
+\href{../README.txt}{README.txt}. The full route requires explicit
+confirmation. Partial stochastic checkpoints are not completed
+experiments. A documentation-only revision changes the package manifest,
+so do not resume a previous snapshot's checkpoint in this snapshot.
+Start a separate output directory.
+
+The original tested environment is CPython 3.13.5 on Linux x86\_64 with
+NumPy 2.3.5, SciPy 1.17.0, mpmath 1.3.0, SymPy 1.14.0, Numba 0.65.1 and
+llvmlite 0.47.0. These are reproducibility pins, not claims of latest
+versions. Dependency installation is external to execution and can
+require network access. The commands do not install dependencies. The
+PDF/HTML are already rendered and numerical execution needs no
+typesetting software. Cross-platform bitwise equality is not assumed.
+
+\section{C01. Models, metrics and distinct experiment
+families}\label{c01}
+
+\subsection{Deterministic network and metrics}\label{c01-deterministic}
+
+There are \(N=6\) planar nodes. Let
+\(J=\left(\begin{smallmatrix}0&-1\\1&0\end{smallmatrix}\right)\) and
+
+\[
+f(x)=\alpha x+\omega Jx-b_{\mathrm{SL}}\|x\|_2^2x,
+\qquad \alpha=b_{\mathrm{SL}}=1,\quad \omega=2.
+\]
+
+Let \(X=\operatorname{col}(x_1,\ldots,x_N)\),
+\(F(X)=\operatorname{col}(f(x_1),\ldots,f(x_N))\), and let \(L\) be the
+unit-weight undirected graph Laplacian. Define the arithmetic mean
+\(y=N^{-1}\sum_i x_i\) and the stacked disagreement
+\(\eta=X-\mathbf1\otimes y\). The network horizon is \(T=2\). Except
+where a graph-specific gain is specified in C04, the coupling multiplier
+is \(k_0=1.2\) and the graph is the six-node ring. The reduced reference
+\(\bar y\) solves \(\dot{\bar y}=f(\bar y)\) from the arithmetic initial
+mean. The snapshot is \(t_\star=T-10^{-5}=1.99999\).
+
+The fiber-only deterministic model is
+
+\[
+\dot X=F(X)-k_0\kappa(t)(L\otimes I_2)X. \tag{E01}
+\]
+
+Reported disagreement is \(\|\eta\|_2\), not normalized by \(N\).
+Projection-orbit error is \(e_y(t)=\|y(t)-\bar y(t)\|_2\). Phase error
+is the continuously tracked angular difference of the mean relative to
+the reduced reference, in radians. Coupling energy is
+\(J_u=\int_0^{t_\star}\|-k_0\kappa(L\otimes I_2)X\|_2^2dt\). The
+full-clock diagnostic requires additional physical input, accounted for
+in C03. Time and state scales follow the numerical benchmark; no
+physical-unit conversion is specified in the source records.
+
+The finite-amplitude Cartesian array is defined, in node order, by
+
+\[
+x_i^0=r_i(\cos\theta_i,\sin\theta_i)^\top,
+\] \[
+r=(0.75,1.25,0.90,1.15,0.80,1.20),\qquad
+\theta=(-0.75,-0.42,-0.15,0.18,0.48,0.82).
+\]
+
+The main time histories assign this state at \(t=0\). The graph-rate
+tests assign the same array directly at \(t_0=1.6\). They do not use the
+state obtained by advancing the main time history to \(1.6\). The
+displacement state in C04, the unit-radius stochastic state below, and
+the local-certified state in C08 are separate initializations.
+
+\subsection{Nonlinear stochastic model}\label{c01-stochastic}
+
+Let \(W=(W_1,\ldots,W_N)^\top\) consist of independent standard node
+Brownian motions and let
+\(e_\theta(t)=(-\sin\omega t,\cos\omega t)^\top\). The implemented
+equation is
+
+\[
+\begin{aligned}
+dX={}&[F(X)-k_0\kappa_K(t)(L\otimes I_2)X]dt\\
+&-k_0\sigma\kappa_K(t)(L\otimes e_\theta(t))dW_t,
+\qquad \kappa_K(t)=\min\{(T-t)^{-1},K\}.
+\end{aligned}\tag{E02}
+\]
+
+The Laplacian acts on node measurement channels, not independent edge
+channels. The reference tangent is common and deterministic, not a
+tangent computed from each node or the current mean. Its time-dependent,
+state-independent diffusion has zero Itô--Stratonovich correction. The
+numerical rule is left-point Euler--Maruyama. Although
+\(\mathbf1^\top L=0\), nonlinear drift can transmit disagreement effects
+to the mean.
+
+The nonlinear initial state has unit radii and centered phases
+
+\[
+\begin{gathered}
+x_i(0)=(\cos\vartheta_i,\sin\vartheta_i)^\top,\qquad \vartheta_i=2(a_i-\bar a),\\
+a=(0.08,-0.05,0.12,-0.10,0.03,-0.08)^\top,\qquad \bar a=N^{-1}\sum_i a_i.
+\end{gathered}
+\]
+
+For a unit eigenvector \(v_j\) of \(L\), the scalar comparison starts
+from \(\xi_{j0}=v_j^\top(\vartheta-\bar\vartheta\mathbf1)\). These are
+phase offsets (arc lengths on the specified unit cycle), not Cartesian
+sine projections. In co-rotating radial/tangent coordinates, the node
+variational rates are \(-2\alpha\) and zero. Nonzero graph modes are
+tangent to the node cycle and normal to synchronization. Their scalar
+comparison is
+
+\[
+d\xi_j=-\rho_j\kappa_K(t)\xi_jdt-\rho_j\sigma\kappa_K(t)d\widetilde W_j(t),
+\qquad \rho_j=k_0\lambda_j(L).
+\]
+
+Here \(\widetilde W_j\) is the orthogonally transformed Brownian
+coordinate. This is a variational model, not an exact nonlinear
+stochastic reduction. The nonlinear terminal cost is squared Euclidean
+disagreement, \(\sum_i\|x_i(T)-y(T)\|_2^2\), rather than phase variance.
+The scalar/modal comparator is evaluated with its declared phase-offset
+initialization.
+
+\textbf{Source records.} \href{MODEL.md}{Model},
+\href{../config/experiments.json}{experiment configuration},
+\href{../code/network_experiments.py}{network implementation},
+\href{../code/stochastic_network.py}{primary stochastic kernel}.
+
+\section{C02. Schedules and complete deterministic
+comparison}\label{c02}
+
+The four fiber-only profiles are \(\kappa_0=1/T\),
+\(\kappa_1=(T-t)^{-1}\), \(\kappa_2=T/(T-t)^2\) and the capped
+inverse-time profile. All use initial coupling coefficient \(k_0/T\).
+The cap is fixed at the stochastic comparator's
+\(K_{\mathrm{opt}}=2.53979193583334\). The full-clock row instead uses
+\(\dot X=\kappa_1[F(X)-k_0(L\otimes I_2)X]\) and accelerates the node
+drift as well as coupling.
+
+For interpreting the functional columns, define
+\(E_\kappa(t)=\exp[-\rho\int_0^t\kappa(u)du]\),
+\(I_\kappa^{(n)}=\int_0^T E_\kappa(t)^n dt\),
+\(I_\kappa=I_\kappa^{(1)}\) and \(\rho=1.2\). These columns record the
+integrals used in the comparison, not an empirical fit. The second-order
+column corresponds to the node-average cancellation in the
+Stuart--Landau model. Its mathematical justification remains in the
+journal treatment.
+
+The label ``Xu--Liu (\(\ell=2\))'' denotes the restricted single-weight,
+symmetric regulatory coupling. Setting \(C(t)=(T-t)^2\) and
+\(\bar k=k_0T\) gives coefficient \(\bar k/C(t)=k_0\kappa_2(t)\). This
+row does not implement the complete directed, multiweighted controller
+associated with that name.
+
+\subsection{Table C1. Complete deterministic comparison}\label{table-c1}
+
+All rows use the finite-amplitude state and common snapshot \(t_\star\).
+The phase column is in radians. The inverse-square disagreement is
+reported at the \(10^{-14}\) numerical-resolution threshold. \(J_u\)
+counts coupling energy only, including in the full-clock row. The cap is
+displayed at its original six-decimal rounding.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.20000}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.12500}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.12500}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.15000}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.15000}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.12500}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.12500}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Profile
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\(I_\kappa/T\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\(I_\kappa^{(2)}/T\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\(\|\eta(t_\star)\|\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\(e_y\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Phase
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\(J_u\)
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Constant & \(0.582338\) & \(0.378868\) & \(3.4102\times10^{-1}\) &
+\(2.1966\times10^{-2}\) & \(-3.64\times10^{-3}\) & \(0.865842\) \\
+Inverse time & \(0.454545\) & \(0.294118\) & \(4.9802\times10^{-7}\) &
+\(1.0305\times10^{-2}\) & \(-3.35\times10^{-3}\) & \(1.235583\) \\
+Xu--Liu (\(\ell=2\)) & \(0.368879\) & \(0.247595\) & \(<10^{-14}\) &
+\(7.1092\times10^{-3}\) & \(-3.16\times10^{-3}\) & \(1.466261\) \\
+Cap \(K=2.539792\) & \(0.458124\) & \(0.294455\) &
+\(4.9009\times10^{-2}\) & \(1.0409\times10^{-2}\) &
+\(-3.35\times10^{-3}\) & \(1.203441\) \\
+Full clock & -- & -- & \(5.0472\times10^{-7}\) & \(1.4064\) &
+\(2.04121\times10^{1}\) & \(1.259392\) \\
+\end{longtable}
+
+The four fiber-only sampled reduced-flow errors have the same ordering
+as \(I_\kappa^{(2)}/T\). This is consistent with the displacement bound
+and does not establish finite-amplitude proportionality. Inverse square
+has the smallest listed functionals and disagreement, but the largest
+coupling energy. Schedule ordering does not order actuation effort.
+
+\textbf{Record links.}
+\href{../data/records/comparison_metrics.csv}{Comparison metrics},
+\href{../data/records/method_metrics.csv}{complete method metrics},
+\href{../data/records/functional_hierarchy_values.csv}{functional
+integrals}. The deterministic route regenerates the displayed-series
+view with its documented supporting-record reuse; the targeted route
+separately checks selected protocols. Full regeneration is a distinct,
+explicitly confirmed route.
+
+\section{C03. Physical actuation and continuous-phase
+diagnostics}\label{c03}
+
+\subsection{Native-plant input and total energy}\label{c03-energy}
+
+For the native plant \(\dot X=F(X)+u\), the full-clock realization
+requires
+
+\[
+u_c=-k_0\kappa_1(L\otimes I_2)X,\qquad
+u_w=(\kappa_1-1)F(X),\qquad u=u_c+u_w.
+\]
+
+With \(J_w=\int_0^{t_\star}\|u_w\|_2^2dt\), the physical energy is
+
+\[
+J_{\mathrm{total}}=J_u+J_w+J_{\mathrm{cross}},\qquad
+J_{\mathrm{cross}}=2\int_0^{t_\star}u_c^\top u_wdt. \tag{E03}
+\]
+
+It is accumulated both by components and directly from
+\(\|u_c+u_w\|_2^2\). Omitting the cross term is not the total-input
+calculation. The normalization is exactly \(\kappa_1=(T-t)^{-1}\). In
+the regular variable \(\tau=\log[T/(T-t)]\), the physical-time Jacobian
+is \(dt/d\tau=Te^{-\tau}\).
+
+The finite-amplitude DOP853 integration uses relative/absolute tolerance
+pairs \((10^{-10},10^{-12})\), \((10^{-12},10^{-13})\) and
+\((2.3\times10^{-14},10^{-15})\). The finest stored result is
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule\noalign{}
+Quantity & Stored finest result \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\(J_u\) & 1.2593922836984972 \\
+\(J_w\) & 2399448.0144150066 \\
+\(J_{\mathrm{cross}}\) & −0.10973109273849226 \\
+\(J_{\mathrm{total}}\) & 2399449.164076198 \\
+Continuous phase excess & 20.41208384685857 rad \\
+\end{longtable}
+
+The binary64 cutoff is the same \(t_\star=1.99999\) used by the original
+source, for which \(T-t_\star=1.0000000000065512\times10^{-5}\). Direct
+and component accumulation agree within the stated numerical diagnostic
+tolerance. These are integration-consistency results, not rigorous
+integration-error bounds or an equal-total-actuation comparison.
+
+For the synchronized nonstationary cycle,
+\(\|F(X)\|_2^2=N\omega^2a_\star^2=24\) and the diagnostic extra-energy
+expression is
+
+\[
+24[1/\delta-1/T-2\log(T/\delta)+(T-\delta)],\qquad \delta=T-t_\star.
+\]
+
+Its leading term is \(24/\delta\), without an extra \(T^2\) under this
+normalization. The finite-amplitude numbers above are directly
+integrated, not replaced by that cycle expression. The separate cutoff
+sequence uses nominal \(\delta=10^{-3},10^{-4},10^{-5},10^{-6}\).
+
+\subsection{Continuous phase and sampled-angle
+unwrapping}\label{c03-phase}
+
+At the common snapshot, \(\tau_\star\simeq12.2060726455\) and continuous
+accumulation gives phase excess \(20.4120838469\) rad. The reduced-cycle
+expression \(\omega\{\log[T/(T-t_\star)]-t_\star\}=20.4121652910\) rad
+differs by the finite-disagreement transient \(8.14\times10^{-5}\) rad.
+
+On 4001 uniform physical times in \([0,t_\star]\), \texttt{numpy.unwrap}
+applied only to sampled angles gives \(14.1288985397\) rad. The final
+continuous increment is \(7.86364\) rad, and this grid misses one
+revolution, \(6.28318530718\) rad. This observation is specific to the
+given output grid, not a universal sample-count threshold. The snapshot
+is not a finite terminal phase of the warped dynamics.
+
+\textbf{Record links.}
+\href{../data/targeted_reference/effort/full_clock_snapshot.csv}{Physical-energy
+snapshot},
+\href{../data/targeted_reference/effort/full_clock_cutoff_series.csv}{cutoff
+series},
+\href{../data/targeted_reference/protocols/full_clock_phase_grid.csv}{phase-grid
+check}, \href{../targeted/effort_reference.py}{targeted effort
+implementation}.
+
+\section{C04. Contraction, graph and displacement fits}\label{c04}
+
+All quoted slopes are finite-window least-squares fits of log error
+against log scale. They do not certify an asymptotic exponent or
+integration error. The main time-history, graph and displacement
+simulations use \(T=2\), \(\kappa_1(t)=(T-t)^{-1}\) and physical-time
+Radau with relative/absolute tolerances \(10^{-10}/10^{-12}\).
+
+\subsection{Main time-history fit}\label{c04-main}
+
+The finite-amplitude ring state is assigned at \(t=0\), with
+\(k_0=1.2\). There are 4001 uniformly spaced output times through
+\(t_\star\). For \(s=(T-t)/T\), the mask \(s<0.03\) selects 120 samples,
+giving the original stored exponent \(1.1996984425895174\), reported as
+\textbf{1.1997} against \(\rho=1.2\). The displayed time-series file
+retains every fourth sample and every sample among the final 81, giving
+1061 unique displayed rows. Display decimation does not change the fit
+population.
+
+\subsection{Nine graph-rate cases}\label{c04-graphs}
+
+At \(t_0=1.6\), assign the finite-amplitude Cartesian array in C01
+directly, in the same node order, to each six-node unit-weight path,
+ring or complete graph. Their spectral gaps are \(2-\sqrt3\), \(1\) and
+\(6\). For each target \(\rho\in\{0.6,1,1.4\}\), use
+\(k_0=\rho/\lambda_2(L)\).
+
+The full parent grid is
+
+\[
+s_j=0.2(10^{-4})^{j/499},\qquad t_j=2(1-s_j),\qquad j=0,\ldots,499. \tag{E04}
+\]
+
+The implementation is \texttt{np.geomspace(2e-5,\ 0.2,\ 500){[}::-1{]}}.
+The mask \(2\times10^{-4}<s_j<0.03\) with \(\|\eta(t_j)\|_2>10^{-12}\)
+selects 272 points in each case. These are zero-based indices 103--374,
+with extreme \(s\) values approximately \(0.0002009250\) and
+\(0.0298798693\).
+
+\begin{longtable}[]{@{}llll@{}}
+\toprule\noalign{}
+Graph & Target \(0.6\) & Target \(1.0\) & Target \(1.4\) \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Path & 0.5985491 & 0.9985998 & 1.3986662 \\
+Ring & 0.5992636 & 0.9991330 & 1.3991638 \\
+Complete & 0.5991917 & 0.9993635 & 1.3994543 \\
+\end{longtable}
+
+The maximum recorded absolute target difference is
+\(0.001450911842219904\), displayed as \(1.451\times10^{-3}\). Digits
+identify stored fits. This is a directly initialized near-deadline rate
+test, not a full-history comparison from \(t=0\).
+
+\subsection{Displacement direction and scale
+fit}\label{c04-displacement}
+
+The ring uses \(k_0=1.2\) and an initialization separate from the
+local-certified run,
+
+\[
+y_b=0.8(\cos0.2,\sin0.2)^\top,\qquad x_i(0)=y_b+\epsilon D_{i,:}^\top,
+\] \[
+D=\frac1{24}\begin{pmatrix}10&2\\-7&5\\3&-11\\-5&-4\\8&9\\-9&-1\end{pmatrix},
+\qquad \mathbf1^\top D=0,\qquad\|D\|_F=1. \tag{E05}
+\]
+
+Thus \(\epsilon=\|\eta(0)\|_2\). The exact matrix specifies the existing
+binary64 direction computed by column-centering and Frobenius
+normalization; no saved initialization is replaced. Use
+\(\epsilon_j=0.015\,40^{j/11}\) for \(j=0,\ldots,11\), 1601 uniform
+times through \(t_\star\), and the first eight scales in the fit. The
+eighth scale is approximately \(0.1568859243\). The reduced reference
+uses DOP853 at tolerances \(10^{-12}/10^{-13}\). The original terminal
+projection-orbit slope is \(1.9761166019943055\), displayed as
+\textbf{1.9761}. This finite-window value depends on the specified
+direction and is consistent with quadratic order.
+
+\textbf{Record links.}
+\href{../data/records/exponent_validation.csv}{Original fitted graph
+rates}, \href{../data/records/tangential_scaling.csv}{displacement
+curve}, \href{../data/records/numerical_summary.json}{original summary},
+\href{../data/targeted_reference/protocols/graph_protocol_and_reintegration.csv}{targeted
+graph replay},
+\href{../data/targeted_reference/protocols/displacement_protocol_and_reintegration.csv}{targeted
+displacement replay}, \href{../targeted/protocol_reference.py}{protocol
+implementation}. Original fit values and later recalculated values
+retain separate fields and filenames.
+
+\section{C05. Terminal-phase curve and endpoint diagnostics}\label{c05}
+
+\subsection{Original plotted curve}\label{c05-original}
+
+The phase experiment uses the finite-amplitude ring state at \(t=0\),
+\(T=2\), \(k_0=1.2\) and \(\kappa_1\). Full-state DOP853 integrates in
+\(\tau=-\log s\) with relative/absolute tolerances
+\(2\times10^{-12}/2\times10^{-13}\). The raw mean \(y_{30}\) at
+\(\tau=30\) defines the plotted reduced orbit \(\phi_{t-T}(y_{30})\).
+
+The parent grid is
+
+\[
+s_j=0.2(1/400)^{j/239},\quad j=0,\ldots,239,
+\qquad \texttt{np.geomspace(0.2,5e-4,240)}. \tag{E06}
+\]
+
+The mask \(10^{-3}\leq s_j\leq0.05\), with phase-tail error above
+\(5\times10^{-13}\), selects 156 points, indices 56--211. Their extreme
+values are approximately \(0.0010088204\) and \(0.0491294949\). They are
+a subset of the parent grid, not a newly generated 156-point grid. The
+original network slope is \(3.4072924626261014\), displayed as
+\textbf{3.4073} against \(2\rho+1=3.4\). The sharp scalar reference
+\(Ts^{\rho+1}/(\rho+1)\) has analytical exponent \(2.2\); it is
+evaluated directly rather than separately integrated.
+
+\subsection{Common-deadline endpoint comparisons}\label{c05-transport}
+
+Transport finite-time numerical means to the same physical deadline by
+
+\[
+\widehat y_T^{(\tau)}=\phi_{Te^{-\tau}}\!\left(y_{\mathrm{num}}(T(1-e^{-\tau}))\right).
+\]
+
+The raw \(\tau=25,30\) means differ by approximately
+\(5.45\times10^{-11}\), which includes remaining reduced motion. The
+smallest fitted network tail is approximately \(8.3\times10^{-12}\). The
+reduced-flow round trip at one estimated point is
+\(3.14\times10^{-16}\); that composition error is not the true error of
+the terminal estimate.
+
+Five full-state/scaled-normal refinements compare endpoints at
+\(\tau=25,30,35\). In the stored runs, transported endpoints agree
+within \(10^{-15}\) within each run, and the largest between-run
+separation is \(1.1969568733894625\times10^{-13}\). Transported-tail
+slopes range from \(3.407363944702072\) to \(3.407767611106687\). The
+full-state refinements use tolerances \(10^{-13}/10^{-14}\) with maximum
+step \(0.1\), and \(2.3\times10^{-14}/10^{-15}\) with maximum step
+\(0.05\), together with corresponding mean/scaled-normal formulations.
+The original setting is retained separately.
+
+Thirty deterministic endpoint perturbations, using plus/minus
+\(10^{-12}\) along the coordinate axes and diagonal in each run, record
+sensitivity. These are consistency diagnostics, not random replications,
+validated endpoint-error bounds or extra certified slope digits. The
+original plotted curve is not replaced by a transported-endpoint curve.
+
+\textbf{Record links.}
+\href{../data/records/phase_map_validation.csv}{Original curve},
+\href{../data/figure_series/phase_map_validation.csv}{identical
+plotted-series record},
+\href{../data/targeted_reference/phase/phase_reference.json}{targeted
+endpoint results},
+\href{../data/targeted_reference/phase/phase_endpoint_sensitivity.csv}{sensitivity
+probes}, \href{../targeted/phase_reference.py}{endpoint implementation}.
+
+\section{C06. Complete primary stochastic cap study}\label{c06}
+
+\subsection{Sample design and estimands}\label{c06-estimands}
+
+For \(\sigma=0.002\), the scalar-mode calculation gives the fixed
+reference cap \(K_{\mathrm{opt}}=2.53979193583334\). All 16 cap ratios
+listed in Table C2 use the same Brownian increments on each path. There
+are 20,000 independent primary paths at fine step
+\(h_{\mathrm{f}}=5\times10^{-4}\). The first 10,000 also carry coarse
+step \(h_{\mathrm{c}}=10^{-3}\) at ratios \(0.95,1,1.05\), summing
+adjacent fine increments. Their fine terminal values are exactly the
+corresponding primary subset. This is 20,000, not 30,000, independent
+paths. NumPy PCG64 uses seed 20260829, batch size 200 and the preserved
+ordering.
+
+Here \(h\) is the Euler--Maruyama time step (the journal's
+\(\Delta t\)). For path \(i\), define
+\(Z_{i,h}(K)=\sum_j\|x_j(T)-y(T)\|_2^2\) and
+\(M_h(K)=\mathbb E Z_{i,h}(K)\). For \(n\) independent paths,
+
+\[
+\widehat M_h(K)=\frac1n\sum_i Z_{i,h}(K),\qquad
+\widehat{\operatorname{se}}_h(K)=\left\{\frac{\sum_i[Z_{i,h}(K)-\widehat M_h(K)]^2}{n(n-1)}\right\}^{1/2}. \tag{E07}
+\]
+
+The marginal 95\% interval is
+\(\widehat M_h\pm t_{n-1,0.975}\widehat{\operatorname{se}}_h\), where
+\(t_{\nu,p}\) is a Student-\(t\) quantile. This is large-sample
+calibration for the fixed-step mean, without assuming Gaussian squared
+disagreements. It does not quantify continuous-time accuracy.
+
+For the exact scalar variational prediction \(M_{\mathrm{mod}}(K)\) with
+the phase-offset initialization, the point discrepancy is
+\(\delta=100[\widehat M_{h_{\mathrm{f}}}(K)/M_{\mathrm{mod}}(K)-1]\).
+Its marginal interval is the same affine transformation of the interval
+for \(M_{h_{\mathrm{f}}}\).
+
+\subsection{Paired family and simultaneous intervals}\label{c06-paired}
+
+Define
+\(D_i(K)=Z_{i,h_{\mathrm{f}}}(K)-Z_{i,h_{\mathrm{f}}}(K_{\mathrm{opt}})\).
+The family has 15 nonzero contrasts against the fixed analytical
+reference, not all pairwise cap comparisons. With
+\(\alpha_{\mathrm{sig}}=0.05\),
+
+\[
+\bar D(K)\ \pm\ t_{n-1,1-\alpha_{\mathrm{sig}}/(2\cdot15)}
+\left\{\frac{\sum_i[D_i(K)-\bar D(K)]^2}{n(n-1)}\right\}^{1/2},
+\qquad n=20000. \tag{E08}
+\]
+
+This retains the common-random-number covariance. The critical value is
+\(2.9355523\), with the same large-sample qualification. Over
+\([0.95,1.05]K_{\mathrm{opt}}\), the minimum reference-output
+correlation is \(0.998707\) and the minimum variance-reduction factor
+for a paired difference versus independent sampling is \(557.2\).
+
+\Needspace{24\baselineskip}
+\subsection{Table C2. All 16 primary cap ratios}\label{table-c2}
+
+Modal and nonlinear means are multiplied by \(10^4\). The \(\pm\) values
+are \textbf{marginal 95\% half-widths}, not standard errors. \(\delta\)
+is percent of the modal mean-square prediction. \(\bar D\) and its
+\textbf{Bonferroni-adjusted simultaneous 95\% interval} are multiplied
+by \(10^8\). The reference contrast is exactly zero.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.10000}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.11000}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.26000}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.09000}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.13500}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.30500}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+\(K/K_{\mathrm{opt}}\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Modal
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Nonlinear \(\pm\) marginal half-width
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\(\delta\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\(\bar D\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Simultaneous interval
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\(0.600\) & \(1.470770\) & \(1.477649\pm0.006838\) & \(+0.468\) &
+\(+4415.221\) & \([+4354.876,+4475.566]\) \\
+\(0.750\) & \(1.151298\) & \(1.155969\pm0.007036\) & \(+0.406\) &
+\(+1198.413\) & \([+1161.834,+1234.991]\) \\
+\(0.850\) & \(1.067090\) & \(1.071383\pm0.007374\) & \(+0.402\) &
+\(+352.557\) & \([+330.920,+374.194]\) \\
+\(0.900\) & \(1.046052\) & \(1.050342\pm0.007585\) & \(+0.410\) &
+\(+142.150\) & \([+127.815,+156.485]\) \\
+\(0.950\) & \(1.034915\) & \(1.039296\pm0.007818\) & \(+0.423\) &
+\(+31.690\) & \([+24.561,+38.819]\) \\
+\(0.975\) & \(1.032380\) & \(1.036836\pm0.007942\) & \(+0.432\) &
+\(+7.091\) & \([+3.536,+10.646]\) \\
+\(0.990\) & \(1.031703\) & \(1.036214\pm0.008018\) & \(+0.437\) &
+\(+0.867\) & \([-0.553,+2.287]\) \\
+\(0.995\) & \(1.031608\) & \(1.036139\pm0.008044\) & \(+0.439\) &
+\(+0.113\) & \([-0.596,+0.823]\) \\
+\(1.000\) & \(1.031577\) & \(1.036127\pm0.008070\) & \(+0.441\) &
+\(+0.000\) & \([+0.000,+0.000]\) \\
+\(1.005\) & \(1.031608\) & \(1.036179\pm0.008096\) & \(+0.443\) &
+\(+0.516\) & \([-0.193,+1.225]\) \\
+\(1.010\) & \(1.031699\) & \(1.036292\pm0.008122\) & \(+0.445\) &
+\(+1.642\) & \([+0.225,+3.060]\) \\
+\(1.025\) & \(1.032323\) & \(1.036982\pm0.008202\) & \(+0.451\) &
+\(+8.545\) & \([+5.007,+12.083]\) \\
+\(1.050\) & \(1.034459\) & \(1.039238\pm0.008337\) & \(+0.462\) &
+\(+31.104\) & \([+24.046,+38.163]\) \\
+\(1.100\) & \(1.042358\) & \(1.047411\pm0.008618\) & \(+0.485\) &
+\(+112.835\) & \([+98.784,+126.886]\) \\
+\(1.250\) & \(1.087813\) & \(1.093838\pm0.009517\) & \(+0.554\) &
+\(+577.103\) & \([+542.390,+611.815]\) \\
+\(1.500\) & \(1.206916\) & \(1.214953\pm0.011142\) & \(+0.666\) &
+\(+1788.257\) & \([+1719.907,+1856.608]\) \\
+\end{longtable}
+
+Three nonzero contrasts, at ratios \(0.990,0.995,1.005\), remain
+unresolved relative to the reference; including the exact reference
+gives four displayed caps. Every other contrast has a positive lower
+endpoint. No tested cap is significantly better. This fixed-grid
+comparison neither supplies a continuous-domain optimizer interval nor
+establishes equal expected mean-square errors.
+
+At the reference, the relative standard error is \(0.3991\%\) of modal
+mean-square error and \(0.3974\%\) of the sample mean. The marginal
+half/full widths are \(0.7823\%/1.5646\%\) of the modal value. The point
+discrepancy \(0.4411\%\) has interval \([-0.3412\%,1.2234\%]\). The
+largest absolute point discrepancy is \(0.6659\%\) at ratio \(1.5\),
+with interval \([-0.2573\%,1.5891\%]\). Sample maxima are not uniform
+nonlinear--modal error bounds.
+
+\textbf{Record links.}
+\href{../data/records/stochastic_crn_pathwise_terminal_mse.npz}{Sealed
+pathwise arrays},
+\href{../data/statistics/stochastic_cap_statistics.csv}{full-precision
+cap statistics}, \href{../data/records/stochastic_summary.json}{primary
+summary}, \href{../code/table_reporting.py}{table formatter}. The
+exploratory \texttt{network\_noise\_validation.csv} and its maximum
+discrepancy in the older \texttt{numerical\_summary.json} are separate
+records, not the 20,000-path primary cap result. Table C2 is
+reconstructed from the sealed primary NPZ and its reporting files.
+
+\section{C07. Quadratic projection and nested refinement}\label{c07}
+
+\subsection{Fixed-design covariance-aware vertex}\label{c07-vertex}
+
+Use \(x=K/K_{\mathrm{opt}}-1\) on the seven ratios
+\(\{0.975,0.990,0.995,1,1.005,1.010,1.025\}\). Let the design matrix
+\(\mathsf X\) have rows \((1,x,x^2)\) and let \(Z_i\) collect each
+path's seven outcomes. The pathwise coefficients are
+\(b_i=(\mathsf X^\top\mathsf X)^{-1}\mathsf X^\top Z_i\); the
+independent reference implementation evaluates the equivalent
+least-squares problem by QR. Let \(\bar b=n^{-1}\sum_i b_i\).
+
+The vertex is
+\(\widehat K_{\mathrm{quad}}=K_{\mathrm{opt}}[1-\bar b_1/(2\bar b_2)]\).
+Its delta-method standard error uses the sample covariance \(S_b\) of
+the pathwise coefficient vectors, divided by \(n\), and gradient
+
+\[
+g_b=\left(0,-\frac{K_{\mathrm{opt}}}{2\bar b_2},
+\frac{K_{\mathrm{opt}}\bar b_1}{2\bar b_2^2}\right)^\top,
+\qquad \widehat{\operatorname{se}}(\widehat K_{\mathrm{quad}})
+=\sqrt{g_b^\top(S_b/n)g_b}.
+\]
+
+Thus cross-cap covariance is retained. The reported values are
+
+\[
+\widehat K_{\mathrm{quad}}=2.5366693,\qquad
+\widehat{\operatorname{se}}=0.00490771,\qquad
+[2.5270498,2.5462888]\quad(95\%).
+\]
+
+The interval targets the seven-point quadratic projection of the
+fixed-step mean curve. Its inclusion of \(K_{\mathrm{opt}}\) and
+\(R^2=0.999728\) remove neither quadratic-model error, discretization
+bias nor off-grid uncertainty. The archived reporting and independently
+reconstructed last digits remain distinct numerical records.
+
+\subsection{Table C3. Nested Euler--Maruyama step
+comparison}\label{table-c3}
+
+This table uses the first 10,000 primary paths. Means are multiplied by
+\(10^4\). Relative coarse-minus-fine shift uses the \textbf{fine subset
+mean} as denominator. The final column is the paired \textbf{marginal
+95\% interval} for \(M_{h_{\mathrm{c}}}-M_{h_{\mathrm{f}}}\), multiplied
+by \(10^8\).
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2000}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2000}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2000}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2000}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2000}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+\(K/K_{\mathrm{opt}}\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\(h_{\mathrm{c}}=10^{-3}\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\(h_{\mathrm{f}}=5\times10^{-4}\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Relative shift
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Paired interval
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\(0.95\) & \(1.037529\) & \(1.036400\) & \(0.1089\%\) &
+\([10.8424,11.7384]\) \\
+\(1.00\) & \(1.034344\) & \(1.033039\) & \(0.1262\%\) &
+\([12.5438,13.5370]\) \\
+\(1.05\) & \(1.037463\) & \(1.035975\) & \(0.1436\%\) &
+\([14.3272,15.4229]\) \\
+\end{longtable}
+
+At the reference, the fine subset mean is \(1.033039\times10^{-4}\),
+whereas the full 20,000-path fine mean is \(1.036127\times10^{-4}\).
+Their difference is not a time-step effect. Coarse-minus-fine shifts are
+\(0.1089\)--\(0.1436\%\) of fine subset means. Paired intervals exclude
+zero and both steps preserve the three-cap ordering, without bounding
+remaining discretization bias.
+
+\subsection{Pathwise extrapolation}\label{c07-richardson}
+
+Form the covariance-preserving diagnostic
+
+\[
+Z_i^{\mathrm{R}}(K)=2Z_{i,h_{\mathrm{f}}}(K)-Z_{i,h_{\mathrm{c}}}(K),\qquad
+\widehat M_{\mathrm{R}}=\frac1{n_{\mathrm{r}}}\sum_i Z_i^{\mathrm{R}},\quad n_{\mathrm{r}}=10000. \tag{E09}
+\]
+
+If \(s_{\mathrm{f}}^2,s_{\mathrm{c}}^2\) and
+\(s_{{\mathrm{f}},{\mathrm{c}}}\) denote the sample variances and
+covariance on those same paths, centering \(Z_i^{\mathrm{R}}\) gives
+\(2(Z_{i,h_{\mathrm{f}}}-\widehat M_{h_{\mathrm{f}}})-(Z_{i,h_{\mathrm{c}}}-\widehat M_{h_{\mathrm{c}}})\).
+Squaring and summing yields
+
+\[
+n_{\mathrm{r}}\widehat{\operatorname{se}}_{\mathrm{R}}^{\,2}
+=4s_{\mathrm{f}}^2+s_{\mathrm{c}}^2-4s_{{\mathrm{f}},{\mathrm{c}}}. \tag{E10}
+\]
+
+The interval targets \(2M_{h_{\mathrm{f}}}-M_{h_{\mathrm{c}}}\). Removal
+of first-order weak bias would additionally require an expansion
+\(M_h=M_0+c_1h+O(h^2)\), which is not established by two step sizes.
+
+\subsection{Table C4. Pathwise Richardson diagnostic}\label{table-c4}
+
+The extrapolated mean and standard error are multiplied by \(10^4\). The
+discrepancy \(\delta_{\mathrm{R}}\) and its marginal 95\% interval are
+in percent of the modal prediction. Intervals quantify sampling
+uncertainty of the extrapolated expectation, not residual discretization
+bias.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2000}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2000}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2000}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2000}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2000}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+\(K/K_{\mathrm{opt}}\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\(\widehat M_{\mathrm{R}}\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Standard error
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\(\delta_{\mathrm{R}}\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Marginal interval
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\(0.95\) & \(1.035271\) & \(0.005649\) & \(+0.0344\) &
+\([-1.0355,+1.1043]\) \\
+\(1.00\) & \(1.031735\) & \(0.005826\) & \(+0.0154\) &
+\([-1.0917,+1.1224]\) \\
+\(1.05\) & \(1.034488\) & \(0.006015\) & \(+0.0028\) &
+\([-1.1370,+1.1425]\) \\
+\end{longtable}
+
+The discrepancies are \(0.0344\%,0.0154\%,0.0028\%\), with marginal
+half-widths \(1.0699\%,1.1071\%,1.1398\%\). Sampling-precision
+consistency with the modal prediction does not establish \(0.04\%\)
+agreement or isolate a bias-limited residual. Sampling error,
+discretization and nonlinear--modal mismatch all contribute. The paired
+comparisons, quadratic projection and extrapolation reuse paths and are
+not independent confirmations.
+
+\textbf{Record links.}
+\href{../data/statistics/stochastic_quadratic_fit.json}{Quadratic-fit
+record}, \href{../data/statistics/stochastic_step_statistics.csv}{step
+comparison},
+\href{../data/statistics/stochastic_sample_split.csv}{sample split},
+\href{../data/statistics/stochastic_richardson_statistics.csv}{Richardson
+statistics}, \href{../targeted/statistics_reference.py}{independent
+statistical reconstruction}.
+
+\section{C08. Numerical evaluation of analytic certificates}\label{c08}
+
+This section records numerical parameters, bound evaluations and
+trajectory diagnostics. The analytic construction and its hypotheses
+remain in the mathematical supplement. The finite-amplitude comparison
+has initial disagreement approximately \(1.3217504433\) and is not
+relabeled as satisfying the local gate.
+
+\subsection{Local initialization, metric and bound}\label{c08-local}
+
+Let \(y_0=N^{-1}\sum_i x_i^0\) for the finite-amplitude array in C01.
+Its radius is \(0.8746881126\). Preserve that mean and set
+
+\[
+x_i^{\mathrm{loc}}(0)=y_0+0.01\frac{x_i^0-y_0}{\left(\sum_j\|x_j^0-y_0\|_2^2\right)^{1/2}}.
+\]
+
+This is the mean-preserving local state, not the independent direction
+in C04. Its disagreement is \(q_0=0.01\). In the certificate's product
+metric, \(\|dX\|_*^2=\|dy\|_2^2+\|d\eta\|_2^2\), so the normal norm
+equals Euclidean disagreement and the base norm equals Euclidean mean
+norm.
+
+The annular base sets use radii \([0.87,0.90]\) and \([0.85,1.002]\),
+with extended disk radius \(1.15\), normal tube radius \(q_*=0.07\),
+\(T=2\) and \(\rho=1.2\). Numerical evaluation of the accepted
+certificate yields the following selected values. Full 70-digit values
+are stored from an 80-digit calculation.
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule\noalign{}
+Evaluated quantity & Numerical value \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\(\rho\) & 1.2 \\
+\(\beta=\mu_g\) & 0.2775 \\
+\(c_r=\gamma\) & 3.076 \\
+\(L_2\) & 0.512666666667 \\
+\(L_h\) & 0.0358866666667 \\
+\(b_*\) & 0.49282 \\
+\(d_*\) & 0.00414123347845 \\
+Normal gate & 0.0261240211607 \\
+Base gate & 0.0271955489791 \\
+Maximum backward radius & 1.13063963675 \\
+Backward collar margin & 0.0193603632459 \\
+\(\mu_{g,-}\) & 2.9675 \\
+Order-three gap with \(m=4\) & 0.45 \\
+\end{longtable}
+
+These constants are an evaluated certificate, not a fitted model. The
+resulting comparison curve is
+
+\[
+q_{\mathrm{bound}}(t)=0.01e^{0.49282t}\left(\frac{2-t}{2}\right)^{1.2}.
+\]
+
+The two evaluated no-exit bounds are \(0.026795262325<0.07\) and
+\(0.001522761493<0.004141233478\). Their analytic derivation, the
+backward collar and the relation to the main first-exit result are
+retained in the journal documents, not supplied exclusively by code.
+
+The earlier ball-based domain is distinct, with normal radius 2 and much
+smaller admitted initialization. Its displayed gate branches are
+approximately \(5.45\times10^{-10}\) and \(1.01\times10^{-13}\). Its
+polynomial/radial calculations remain journal mathematics. The
+certificate diagnostic modules retain the numerical evaluations of both
+domain choices; the larger annular gate is not retroactively applied to
+the finite-amplitude initial state.
+
+\subsection{Local trajectory and solver
+comparison}\label{c08-trajectory}
+
+The selected run evolves the mean and cancellation-free scaled normal
+coordinates \(e^{\rho\tau}(V_\perp^\top\otimes I_2)\eta\) in
+\(\tau=\log[T/(T-t)]\). It uses DOP853 with tolerances
+\(10^{-12}/10^{-14}\), maximum \(\tau\) step \(0.1\), and 1000 output
+times through \(t_\star\). Refinement to \(10^{-13}/10^{-15}\) and
+maximum step \(0.05\) changes sampled disagreement by at most
+\(1.61\times10^{-12}\) relatively. Independent full-state integrations
+in regular and physical time differ from the refined disagreement by at
+most \(4.38\times10^{-8}\) and approximately \(9.29\times10^{-6}\)
+relatively. The full-precision stored physical-time diagnostic is
+\(9.2824490939\times10^{-6}\); the latter displayed value is the
+retained journal approximation.
+
+At the snapshot, \(q(t_\star)\simeq3.845727779\times10^{-9}\) and
+\(q_{\mathrm{bound}}(t_\star)\simeq1.166325788\times10^{-8}\). The
+sampled mean radius spans \([0.8746881126,0.9971992474]\). The maximum
+sampled ratio \(q/q_{\mathrm{bound}}\) is 1, attained initially. These
+are solver-consistency and sampling records. The plots do not prove
+continuous-time invariance or exact contact at the unintegrated
+deadline.
+
+\textbf{Record links.}
+\href{../data/records/local_certificate.json}{Certificate constants},
+\href{../data/records/local_initial_states.csv}{local states},
+\href{../data/records/local_solver_comparison.csv}{solver comparisons},
+\href{../data/records/local_trajectory.csv}{trajectory},
+\href{../data/records/local_summary.json}{local summary},
+\href{../code/benchmark_certificate.py}{certificate diagnostic},
+\href{../code/certificate_reconstruction.py}{high-precision
+reconstruction}.
+
+\section{C09. Scalar diagnostics and precision supersessions}\label{c09}
+
+\subsection{Scalar noise sweep and modal records}\label{c09-scalar}
+
+The scalar comparison uses \((\eta_0,\rho,T)=(1,1.2,1)\) and the
+31-point grid \(\sigma_j=10^{-9+j/5}\), \(j=0,\ldots,30\), distinct from
+the network horizon \(T=2\). The least-squares log
+root-mean-square-error/log noise slopes are \(0.934135\), \(0.934224\)
+and \(0.931788\) for the exact, refined and leading inverse-square
+curves. The exact bounded-profile benchmark gives \(0.999999990\); the
+inverse-time fit is approximately \(0.705882\). All optimized
+named-family points on the specified sweep lie above the benchmark.
+
+These are finite-grid fits, not new asymptotic exponents. The code
+evaluates accepted scalar moments and refinements; their mathematical
+statements, assumptions and derivations remain in the mathematical
+supplement. Scalar deterministic expansions are distinct from the
+network sampling intervals. Modal leading-rate diagnostics, degeneracies
+and bounded deterministic-measurement limits have separate numerical
+records and are not substituted for nonlinear stochastic evidence.
+
+\textbf{Records.}
+\href{../data/records/modal_lambert_remainder_and_slopes.csv}{Scalar
+slope diagnostics},
+\href{../data/records/schedule_noise_optima.csv}{noise optima},
+\href{../data/records/dirichlet_envelope_curves.csv}{exact benchmark
+curve}, \href{../data/records/modal_asymptotics.csv}{modal diagnostics},
+\href{../data/records/modal_bounded_noise_limits.csv}{bounded-noise
+diagnostics}.
+
+\subsection{\texorpdfstring{High-precision \(p=3\)
+reference}{High-precision p=3 reference}}\label{c09-power}
+
+The normalized profile is \(\kappa_p(t)=T^{p-1}/(T-t)^p\), capped at
+\(K\). For the numerical precision check,
+\((p,\eta_0,\rho,T)=(3,1,1.2,1)\) and
+\(\sigma\in\{10^{-5},10^{-8},10^{-12}\}\). The exact objective is
+evaluated by split integration of its scalar transition kernel. Its
+derivative root is calculated at both 60 and 80 decimal digits, with
+quadrature versus an independent antiderivative, independent
+differentiation, neighboring derivative-sign checks and finite objective
+probes.
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule\noalign{}
+\(\sigma\) & \(|K_{\mathrm{L}}/K_{\mathrm{ref}}-1|\) \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\(10^{-5}\) & \(7.8463208697\times10^{-9}\) \\
+\(10^{-8}\) & \(6.1369645291\times10^{-13}\) \\
+\(10^{-12}\) & \(2.2541369701\times10^{-18}\) \\
+\end{longtable}
+
+The old \texttt{asymptotic\_power\_p3\_accuracy.csv} is retained
+verbatim, together with an explicitly named historical copy. It was
+produced by double-precision bounded minimization. The high-precision
+root calculation supersedes only the precision interpretation of that
+optimizer diagnostic. It does not replace a theorem, stochastic outcome,
+plotted phase curve or original cap study. The reference calculation is
+not a new proof of global optimality or a sharper asymptotic remainder.
+
+\textbf{Records.}
+\href{../data/records/asymptotic_power_p3_accuracy.csv}{Original
+optimizer record},
+\href{../data/targeted_reference/power/historical_power_p3_accuracy.csv}{identical
+historical copy},
+\href{../data/targeted_reference/power/power_p3_successor.csv}{high-precision
+successor},
+\href{../data/targeted_reference/power/power_reference.json}{full
+precision checks}, \href{../targeted/power_reference.py}{precision
+implementation}, \href{../config/supersession.json}{supersession map}.
+
+\subsection{Release interpretation}\label{c09-release}
+
+Historical validation-count summaries are preserved in
+\url{HISTORICAL_VALIDATION.txt}. They describe earlier diagnostic runs,
+not fresh execution merely because this companion has been added. Table
+reconstruction, same-stream regeneration and independent replication are
+different claims. Existing numerical comparisons report their tolerances
+and exact equality separately; near-zero absolute agreement can coexist
+with large relative discrepancies.
+
+The snapshot is a local unpublished repository candidate. No live
+anonymous URL, hosted availability, license choice or submission action
+is implied by these files. The \href{../index.html}{landing page},
+complete \href{EVIDENCE_INDEX.md}{asset index},
+\href{RECORD_LOCATIONS.md}{record-location map} and
+\href{../RELEASE.json}{release descriptor} provide the local interface.
+Publication and verification of an actual guest-facing link are separate
+steps.
+\end{document}

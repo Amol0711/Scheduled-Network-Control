@@ -1,0 +1,193 @@
+{
+  "network": {
+    "nodes": 6,
+    "dimension": 2,
+    "horizon": 2.0,
+    "node_rotation_rate": 2.0,
+    "coupling_multiplier": 1.2,
+    "deterministic_initial_phases": [
+      -0.75,
+      -0.42,
+      -0.15,
+      0.18,
+      0.48,
+      0.82
+    ],
+    "deterministic_initial_radii": [
+      0.75,
+      1.25,
+      0.9,
+      1.15,
+      0.8,
+      1.2
+    ],
+    "deterministic_terminal_gap": 1e-05,
+    "note": "The nonlinear benchmark, tangent-noise experiment and locally certified initialization are distinct experiments."
+  },
+  "stochastic_cap": {
+    "paths": 20000,
+    "nested_refinement_paths": 10000,
+    "batch_size": 200,
+    "seed": 20260829,
+    "generator": "NumPy PCG64",
+    "sigma": 0.002,
+    "primary_dt": 0.0005,
+    "coarse_dt": 0.001,
+    "phase_offset_base": [
+      0.08,
+      -0.05,
+      0.12,
+      -0.1,
+      0.03,
+      -0.08
+    ],
+    "phase_offset_rule": "2 * (base - mean(base)); all radii equal one",
+    "cap_ratios": [
+      0.6,
+      0.75,
+      0.85,
+      0.9,
+      0.95,
+      0.975,
+      0.99,
+      0.995,
+      1.0,
+      1.005,
+      1.01,
+      1.025,
+      1.05,
+      1.1,
+      1.25,
+      1.5
+    ],
+    "refinement_ratios": [
+      0.95,
+      1.0,
+      1.05
+    ],
+    "quadratic_ratios": [
+      0.975,
+      0.99,
+      0.995,
+      1.0,
+      1.005,
+      1.01,
+      1.025
+    ],
+    "alpha": 0.05,
+    "bonferroni_contrasts": 15,
+    "sample_variance_ddof": 1,
+    "integration": "left-point Euler-Maruyama",
+    "pairing": "All caps use the same Brownian increments. Adjacent primary increments are summed to obtain coarse increments. The fine refinement arrays equal the first 10000 primary rows at their three caps."
+  },
+  "local_certificate": {
+    "horizon": 2.0,
+    "rho": 1.2,
+    "initial_disagreement": 0.01,
+    "tube_radius": 0.07,
+    "annular_radii": [
+      0.87,
+      0.9,
+      0.85,
+      1.002,
+      1.15
+    ],
+    "scalar_precision_digits": 80,
+    "diagnostic_seed": 20260906,
+    "terminal_gap": 1e-05,
+    "selected_solver": "DOP853",
+    "selected_clock": "tau",
+    "selected_rtol": 1e-12,
+    "selected_atol": 1e-14,
+    "selected_max_step": 0.1,
+    "note": "Numerical integration stops before the terminal time. Sampled inequalities and solver agreement do not establish continuous-time invariance or exact terminal contact."
+  },
+  "noise_model": {
+    "equation": "dX=[F(X)-k0*kappa_K(t)*(L tensor I2)X]dt-k0*sigma*kappa_K(t)*(L tensor e_theta(t))dW",
+    "direction": [
+      "-sin(omega*t)",
+      "cos(omega*t)"
+    ],
+    "direction_type": "common deterministic reference-cycle tangent",
+    "noise_channels": "N independent standard node Brownian motions before Laplacian; not independent edge channels",
+    "diffusion_state_dependent": false,
+    "interpretation": "Ito; additive diffusion has zero Stratonovich correction",
+    "initial_modal_coordinates": "V.T @ centered_phase_offsets; not V.T @ sin(phases)",
+    "nonlinear_metric": "sum_i ||x_i-mean(x)||_2^2 at the physical terminal time",
+    "modal_scope": "co-rotating cycle-tangent variational model, not exact nonlinear reduction"
+  },
+  "deterministic_protocol": {
+    "time_history_points": 4001,
+    "time_history_start": 0.0,
+    "main_fit": "s<0.03 on original grid; 120 points",
+    "display": "every fourth plus final 81 points, 1061 unique rows",
+    "graph_start": 1.6,
+    "graph_nodes": 6,
+    "graph_kinds": [
+      "path",
+      "ring",
+      "complete"
+    ],
+    "graph_target_rates": [
+      0.6,
+      1.0,
+      1.4
+    ],
+    "graph_gain": "target_rate/lambda2",
+    "graph_s_grid": [
+      0.2,
+      2e-05,
+      500
+    ],
+    "graph_fit": "2e-4<s<0.03 and disagreement>1e-12; 272 points",
+    "displacement_base_radius": 0.8,
+    "displacement_base_phase": 0.2,
+    "displacement_raw_direction": [
+      [
+        1,
+        0.2
+      ],
+      [
+        -0.7,
+        0.5
+      ],
+      [
+        0.3,
+        -1.1
+      ],
+      [
+        -0.5,
+        -0.4
+      ],
+      [
+        0.8,
+        0.9
+      ],
+      [
+        -0.9,
+        -0.1
+      ]
+    ],
+    "displacement_direction_rule": "center each column then divide by Frobenius norm",
+    "displacement_scales": [
+      0.015,
+      0.6,
+      12
+    ],
+    "displacement_fit_first": 8,
+    "phase_raw_endpoint_tau": 30,
+    "phase_grid": [
+      0.2,
+      0.0005,
+      240
+    ],
+    "phase_fit": "0.001<=s<=0.05 and tail>5e-13",
+    "phase_transported_comparison_tau": [
+      25,
+      30,
+      35
+    ],
+    "terminal_error_scope": "raw difference includes reduced motion; transported consistency and round trip are not validated true error bounds",
+    "full_clock_energy": "coupling + warp + 2*integral coupling dot warp; original table contains coupling only"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "python": "3.13.5",
+  "system": "Linux",
+  "architecture": "x86_64",
+  "numpy": "2.3.5",
+  "scipy": "1.17.0",
+  "sympy": "1.14.0",
+  "mpmath": "1.3.0",
+  "numba": "0.65.1",
+  "llvmlite": "0.47.0",
+  "numba_worker_threads": 4,
+  "claim": "Recorded test environment, not a cross-platform bitwise guarantee. No interpreter or dependency binaries are bundled."
+}

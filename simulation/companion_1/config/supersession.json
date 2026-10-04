@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "original_archive_sha256": "682537d06ac2f6fdbef9ab65bc59210df5150bfca3455306babe426b006b9d33",
+  "supersessions": [
+    {
+      "topic": "power_p3",
+      "old": "data/records/asymptotic_power_p3_accuracy.csv",
+      "new": "data/targeted_reference/power/power_reference.json",
+      "scope": "Numerical minimizer precision only; original historical row and theorem retained",
+      "old_sha256": "097a13d941088921bb18d9525ec49c2461b3b6889145f8c5a55ae3fbc23ead35",
+      "new_sha256": "69c06f3ef81ce283671adc476ac4e6eb9439941db286d6116604f4b5253f691e"
+    },
+    {
+      "topic": "full_clock_energy",
+      "old": "data/records/method_metrics.csv",
+      "new": "data/targeted_reference/effort/effort_reference.json",
+      "scope": "New total actuation accounting augments original coupling-only record; cross term included",
+      "old_sha256": "84fc770530bbdcd508ec787219d5bf07354a207ee30ae8012308aa7205584307",
+      "new_sha256": "7e6af05084828da5cb46a52f7923e55329ceddc82b54b7fc4985ad902b9842b1"
+    },
+    {
+      "topic": "phase_endpoint",
+      "old": "data/records/phase_map_validation.csv",
+      "new": "data/targeted_reference/phase/phase_reference.json",
+      "scope": "Transported endpoints and refinement diagnostics augment original plotted curve; do not replace it",
+      "old_sha256": "148cfb851142fc2e58d80f94be93ee7a3dc59e4a6bd30fcff23393415d6a462c",
+      "new_sha256": "151cd8785148cff7095e6f95fb7e23c9c5771cf847fdff70885ac8bce8ae0f22"
+    },
+    {
+      "topic": "deterministic_protocol",
+      "new": "docs/NUMERICAL_PROTOCOL.md",
+      "scope": "Actual grids, masks, starts and initial directions; no altered experiment",
+      "new_sha256": "0199db04e4932d2eb03d4d61b00c8213a6e7fe3bb4a796c56567cd8896556ed3"
+    },
+    {
+      "topic": "quadratic_vertex",
+      "new": "data/targeted_reference/statistics/statistics_reference.json",
+      "scope": "Independent QR/covariance reconstruction from original paths; no new stochastic sample",
+      "new_sha256": "1699c02e2e004d5812fc4cc789150b4c677c4a2e796c15abf8a0d88579450a77"
+    }
+  ]
+}

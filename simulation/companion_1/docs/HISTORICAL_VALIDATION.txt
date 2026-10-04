@@ -1,0 +1,28 @@
+HISTORICAL VALIDATION COUNTERS
+==============================
+
+The following records are retained from the earlier supplement. They are historical
+counts, not fresh execution claims for this consolidated release. The runs produced
+by each new command have their own explicit logs and status. Counts from repeated
+summaries must not be summed as distinct mathematical results.
+
+Independent validation records
+Independent suites pass all 95 schedule-profile, 327 schedule-noise,
+1287 Dirichlet-envelope, 1190 functional-hierarchy, 135 integration,
+3521 plant-realization, 5176 benchmark-hypothesis, 48
+common-random-number, 409 asymptotic, 949 modal and limiting-case, and 1058 realization-bridge and profile-gap
+checks. The additional annular-certificate suite passes 3302 checks,
+including symbolic identities, local-bound diagnostics, and independent
+trajectory formulations. The largest
+schedule-noise exact-layer error is
+4.13310^-13; the largest normalized plant-realization identity error
+is 4.54910^-12. Four piecewise-exact scalar Monte Carlo checks also
+pass the 3.2-standard-error gate. The nonlinear network records include all
+marginal, paired, and simultaneous confidence intervals, the local quadratic
+fit, the step-refinement statistics, and compressed pathwise terminal values.
+A separate 290-check reconstruction verifies the full 16-cap table,
+sample overlap, marginal and paired intervals, the quadratic-fit covariance,
+and the pathwise Richardson statistics without rerunning the full
+nonlinear Monte Carlo experiment.
+
+

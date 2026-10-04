@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Record Locations</title>
+  <style>
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <style>
+  html{font-family:system-ui,sans-serif;line-height:1.55;color:#17232a;background:white}body{max-width:1120px;margin:2.5rem auto;padding:0 1.5rem}h1{border-bottom:1px solid #cfd9dc;padding-bottom:.4rem;margin-top:2rem}h2{margin-top:1.8rem}a{color:#155c77}table{border-collapse:collapse;display:block;overflow:auto;width:100%;font-size:.94rem}th,td{border-bottom:1px solid #dce2e5;padding:.55rem;text-align:left;vertical-align:top}th{background:#f2f6f7}code{font-family:ui-monospace,monospace;font-size:.91em;overflow-wrap:anywhere}pre{background:#f2f6f7;padding:1rem;overflow:auto}math[display="block"]{overflow:auto;max-width:100%;padding:.5rem 0}nav{padding:1rem;background:#f6f8f8}.title{font-size:2rem}.subtitle{color:#53676f}@media print{body{max-width:none;margin:0}a{color:inherit}}
+  </style>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Record Locations</h1>
+</header>
+<h1 id="record-locations-and-numbering">Record locations and
+numbering</h1>
+<p>This snapshot adds a computational companion without replacing the
+journal documents. The journal continues to supply the analytic
+arguments. The mappings below identify numerical records formerly
+tabulated in supplementary Section III; they do not assert that those
+journal copies have been removed.</p>
+<table>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Earlier record</th>
+<th style="text-align: left;">Companion location</th>
+<th style="text-align: left;">Current numerical record</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Table S1</td>
+<td style="text-align: left;"><a
+href="COMPUTATIONAL_COMPANION.html#table-c1">Table C1</a></td>
+<td
+style="text-align: left;"><code>data/records/comparison_metrics.csv</code>
+and functional-integral records</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Table S2</td>
+<td style="text-align: left;"><a
+href="COMPUTATIONAL_COMPANION.html#table-c2">Table C2</a></td>
+<td
+style="text-align: left;"><code>data/statistics/stochastic_cap_statistics.csv</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Table S3</td>
+<td style="text-align: left;"><a
+href="COMPUTATIONAL_COMPANION.html#table-c3">Table C3</a></td>
+<td
+style="text-align: left;"><code>data/statistics/stochastic_step_statistics.csv</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Table S4</td>
+<td style="text-align: left;"><a
+href="COMPUTATIONAL_COMPANION.html#table-c4">Table C4</a></td>
+<td
+style="text-align: left;"><code>data/statistics/stochastic_richardson_statistics.csv</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Mean and standard error (S18)</td>
+<td style="text-align: left;">E07, <a
+href="COMPUTATIONAL_COMPANION.html#c06-estimands">C06</a></td>
+<td style="text-align: left;">Primary pathwise NPZ and reporting
+module</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Bonferroni contrasts (S19)</td>
+<td style="text-align: left;">E08, <a
+href="COMPUTATIONAL_COMPANION.html#c06-paired">C06</a></td>
+<td style="text-align: left;">Same primary paths, 15 nonzero
+contrasts</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Richardson estimator (S20)</td>
+<td style="text-align: left;">E09, <a
+href="COMPUTATIONAL_COMPANION.html#c07-richardson">C07</a></td>
+<td style="text-align: left;">Nested coarse/fine subset</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Richardson covariance (S21)</td>
+<td style="text-align: left;">E10, <a
+href="COMPUTATIONAL_COMPANION.html#c07-richardson">C07</a></td>
+<td style="text-align: left;">Same-path covariance, not independent
+samples</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Local terminal checkpoint (S16)</td>
+<td style="text-align: left;"><a
+href="COMPUTATIONAL_COMPANION.html#c08-trajectory">C08</a></td>
+<td
+style="text-align: left;"><code>data/records/local_summary.json</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Exact graph fits and displacement
+direction</td>
+<td style="text-align: left;"><a
+href="COMPUTATIONAL_COMPANION.html#c04">C04</a></td>
+<td style="text-align: left;">Original grid, state ordering, gains and
+fit masks</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Raw phase curve and transported
+endpoints</td>
+<td style="text-align: left;"><a
+href="COMPUTATIONAL_COMPANION.html#c05">C05</a></td>
+<td style="text-align: left;">Original curve versus separately named
+reference diagnostics</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Scalar fits and precision comparison</td>
+<td style="text-align: left;"><a
+href="COMPUTATIONAL_COMPANION.html#c09">C09</a></td>
+<td style="text-align: left;">Original optimizer versus high-precision
+successor</td>
+</tr>
+</tbody>
+</table>
+<p>E01–E06 provide standalone definitions of the computational model,
+input accounting and sampling grids. Earlier mathematical labels are not
+imported as unresolved cross-references. The full 16-cap table and all
+uncertainty definitions remain readable. Original and successor results
+retain separate paths and provenance.</p>
+</body>
+</html>
