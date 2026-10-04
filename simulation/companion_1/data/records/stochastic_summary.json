@@ -1,0 +1,107 @@
+{
+  "experiment": "Stochastic",
+  "paths": 20000,
+  "refinement_paths": 10000,
+  "seed": 20260829,
+  "sigma": 0.002,
+  "primary_dt": 0.0005,
+  "coarse_dt": 0.001,
+  "numba_threads": 4,
+  "Kopt_modal": 2.53979193583334,
+  "Kopt_modal_mse": 0.00010315769945145592,
+  "Kopt_nonlinear_mc_mse": 0.00010361272753515607,
+  "Kopt_marginal_se": 4.1172306132813524e-07,
+  "Kopt_marginal_relative_se": 0.003973672647392054,
+  "Kopt_nonlinear_modal_relative_error": 0.004410994875998401,
+  "cap_count": 16,
+  "cap_ratios": [
+    0.6,
+    0.75,
+    0.85,
+    0.9,
+    0.95,
+    0.975,
+    0.99,
+    0.995,
+    1.0,
+    1.005,
+    1.01,
+    1.025,
+    1.05,
+    1.1,
+    1.25,
+    1.5
+  ],
+  "cap_grid": [
+    1.523875161500004,
+    1.9048439518750049,
+    2.1588231454583386,
+    2.285812742250006,
+    2.4128023390416726,
+    2.4762971374375065,
+    2.5143940164750065,
+    2.527092976154173,
+    2.53979193583334,
+    2.552490895512506,
+    2.565189855191673,
+    2.6032867342291732,
+    2.666781532625007,
+    2.7937711294166743,
+    3.1747399197916746,
+    3.8096879037500098
+  ],
+  "empirical_grid_minimum_cap": 2.53979193583334,
+  "empirical_grid_minimum_ratio": 1.0,
+  "empirical_grid_minimum_mse": 0.00010361272753515607,
+  "simultaneous_ci_critical": 2.9355523144606024,
+  "simultaneous_unresolved_ratio_interval": [
+    0.99,
+    1.005
+  ],
+  "simultaneous_unresolved_cap_interval": [
+    2.5143940164750065,
+    2.552490895512506
+  ],
+  "no_tested_cap_significantly_better_than_Kopt": true,
+  "minimum_local_correlation_with_Kopt": 0.9987067655308944,
+  "minimum_local_crn_variance_reduction": 557.2171760504103,
+  "maximum_absolute_nonlinear_modal_relative_error": 0.006658950149186364,
+  "quadratic_localization": {
+    "ratios": [
+      0.975,
+      0.99,
+      0.995,
+      1.0,
+      1.005,
+      1.01,
+      1.025
+    ],
+    "coefficients_scaled_ratio_coordinate": [
+      0.00010361275188833863,
+      3.0749983786718827e-07,
+      0.00012505230565646328
+    ],
+    "estimated_cap": 2.536669300051515,
+    "standard_error": 0.004907710096938668,
+    "ci95_low": 2.5270497828302356,
+    "ci95_high": 2.5462888172727944,
+    "ratio_to_analytical_optimum": 0.9987705151206411,
+    "r_squared": 0.9997282852820355,
+    "max_relative_fit_residual": 7.909373609148655e-06
+  },
+  "step_refinement": {
+    "paths": 10000,
+    "ratios": [
+      0.95,
+      1.0,
+      1.05
+    ],
+    "maximum_relative_shift": 0.0014358492638923978,
+    "empirical_ordering_stable": true
+  },
+  "validation": {
+    "status": "PASS",
+    "checks_passed": 48,
+    "checks_total": 48
+  }
+}

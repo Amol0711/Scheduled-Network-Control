@@ -1,0 +1,1828 @@
+{
+  "npz_sha256": "6e1a33d23b12f93df567b772a3722fac38652f51804460fcde980ef902fbaf33",
+  "paths": 20000,
+  "caps": 16,
+  "seed": 20260829,
+  "reference_cap": 2.53979193583334,
+  "design_ratios": [
+    0.975,
+    0.99,
+    0.995,
+    1.0,
+    1.005,
+    1.01,
+    1.025
+  ],
+  "cap_indices": [
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+  ],
+  "qr_condition_number_design": 3814.5583080319066,
+  "mean_coefficients": [
+    0.00010361275188833863,
+    3.074998378669114e-07,
+    0.00012505230565643385
+  ],
+  "coefficient_mean_covariance": [
+    [
+      1.6951604530824985e-13,
+      1.0921854880634465e-13,
+      -1.5916207207036726e-14
+    ],
+    [
+      1.0921854880634465e-13,
+      2.3345003553902255e-13,
+      -2.2881672898168837e-14
+    ],
+    [
+      -1.5916207207036726e-14,
+      -2.2881672898168837e-14,
+      1.4954381645055755e-13
+    ]
+  ],
+  "gradient": [
+    0.0,
+    -10154.918465922221,
+    24.970637409931918
+  ],
+  "vertex": 2.536669300051517,
+  "standard_error": 0.004907710096939817,
+  "CI95": [
+    2.527049782830235,
+    2.5462888172727984
+  ],
+  "student_t_quantile": 1.960082611089815,
+  "initialization_checks": {
+    "phase_offsets": {
+      "root_optimal_cap": 2.5397919358072967,
+      "mse_at_reference_cap": 0.0001031576994514559
+    },
+    "Cartesian_tangent": {
+      "root_optimal_cap": 2.5236880452588983,
+      "mse_at_reference_cap": 0.0001025085749738452
+    }
+  },
+  "Cartesian_MSE_difference_pct_at_reference": -0.6292545113573134,
+  "unresolved_cap_ratios": [
+    0.99,
+    0.995,
+    1.0,
+    1.005
+  ],
+  "estimator_interpretation": "Vertex of the fixed seven-point quadratic projection of the fixed-step mean curve; delta-method large-sample interval, not a continuous-domain optimizer confidence interval.",
+  "same_paths_reused": true,
+  "new_trajectories": 0,
+  "status": "PASS",
+  "checks_passed": 164,
+  "checks": [
+    {
+      "id": "primary_shape",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "finite_nonnegative_outcomes",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "seed",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "fixed_seven_point_design",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "quadratic:vertex",
+      "passed": true,
+      "details": {
+        "actual": 2.536669300051517,
+        "reference": 2.536669300051515,
+        "atol": 2e-12,
+        "rtol": 0.0,
+        "absolute_difference": 1.7763568394002505e-15
+      }
+    },
+    {
+      "id": "quadratic:standard_error",
+      "passed": true,
+      "details": {
+        "actual": 0.004907710096939817,
+        "reference": 0.004907710096938668,
+        "atol": 2e-12,
+        "rtol": 0.0,
+        "absolute_difference": 1.1492543028346347e-15
+      }
+    },
+    {
+      "id": "quadratic:lower",
+      "passed": true,
+      "details": {
+        "actual": 2.527049782830235,
+        "reference": 2.5270497828302356,
+        "atol": 2e-12,
+        "rtol": 0.0,
+        "absolute_difference": 4.440892098500626e-16
+      }
+    },
+    {
+      "id": "quadratic:upper",
+      "passed": true,
+      "details": {
+        "actual": 2.5462888172727984,
+        "reference": 2.5462888172727944,
+        "atol": 2e-12,
+        "rtol": 0.0,
+        "absolute_difference": 3.9968028886505635e-15
+      }
+    },
+    {
+      "id": "quadratic:mean_fit_equivalence0",
+      "passed": true,
+      "details": {
+        "actual": 0.00010361275188833863,
+        "reference": 0.00010361275188833859,
+        "atol": 3e-15,
+        "rtol": 0.0,
+        "absolute_difference": 4.0657581468206416e-20
+      }
+    },
+    {
+      "id": "quadratic:mean_fit_equivalence1",
+      "passed": true,
+      "details": {
+        "actual": 3.074998378669114e-07,
+        "reference": 3.0749983786758383e-07,
+        "atol": 3e-15,
+        "rtol": 0.0,
+        "absolute_difference": 6.724382810015077e-19
+      }
+    },
+    {
+      "id": "quadratic:mean_fit_equivalence2",
+      "passed": true,
+      "details": {
+        "actual": 0.00012505230565643385,
+        "reference": 0.000125052305656428,
+        "atol": 3e-15,
+        "rtol": 0.0,
+        "absolute_difference": 5.854691731421724e-18
+      }
+    },
+    {
+      "id": "quadratic:positive_curvature",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "quadratic:vertex_inside_design",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "nested_fine_array_exact",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "coarse_shape",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "marginal_t_quantile_inverse_cdf",
+      "passed": true,
+      "details": {
+        "actual": 0.975,
+        "reference": 0.975,
+        "atol": 1e-13,
+        "rtol": 0.0,
+        "absolute_difference": 0.0
+      }
+    },
+    {
+      "id": "marginal_t_quantile_printed_rounding",
+      "passed": true,
+      "details": {
+        "actual": 1.960082611089815,
+        "reference": 1.9600826,
+        "atol": 5e-08,
+        "rtol": 0.0,
+        "absolute_difference": 1.1089815066256392e-08
+      }
+    },
+    {
+      "id": "cap0:K",
+      "passed": true,
+      "details": {
+        "actual": 1.523875161500004,
+        "reference": 1.523875161500004,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 0.0
+      }
+    },
+    {
+      "id": "cap0:nonlinear_mean",
+      "passed": true,
+      "details": {
+        "actual": 0.00014776493756354385,
+        "reference": 0.00014776493756354385,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 0.0
+      }
+    },
+    {
+      "id": "cap0:se",
+      "passed": true,
+      "details": {
+        "actual": 3.4883918302062445e-07,
+        "reference": 3.4883918302062445e-07,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 0.0
+      }
+    },
+    {
+      "id": "cap0:ci95_low",
+      "passed": true,
+      "details": {
+        "actual": 0.00014708118394683836,
+        "reference": 0.00014708118394683836,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 0.0
+      }
+    },
+    {
+      "id": "cap0:ci95_high",
+      "passed": true,
+      "details": {
+        "actual": 0.00014844869118024935,
+        "reference": 0.00014844869118024935,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 0.0
+      }
+    },
+    {
+      "id": "cap0:paired_difference",
+      "passed": true,
+      "details": {
+        "actual": 4.415221002838732e-05,
+        "reference": 4.415221002838732e-05,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 0.0
+      }
+    },
+    {
+      "id": "cap0:paired_se",
+      "passed": true,
+      "details": {
+        "actual": 2.0556553786349698e-07,
+        "reference": 2.0556553786349696e-07,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 2.6469779601696886e-23
+      }
+    },
+    {
+      "id": "cap0:bonferroni15_ci95_low",
+      "passed": true,
+      "details": {
+        "actual": 4.35487616379388e-05,
+        "reference": 4.35487616379388e-05,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 0.0
+      }
+    },
+    {
+      "id": "cap0:bonferroni15_ci95_high",
+      "passed": true,
+      "details": {
+        "actual": 4.4755658418835845e-05,
+        "reference": 4.4755658418835845e-05,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 0.0
+      }
+    },
+    {
+      "id": "cap1:K",
+      "passed": true,
+      "details": {
+        "actual": 1.9048439518750049,
+        "reference": 1.9048439518750049,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 0.0
+      }
+    },
+    {
+      "id": "cap1:nonlinear_mean",
+      "passed": true,
+      "details": {
+        "actual": 0.00011559685376068072,
+        "reference": 0.00011559685376068072,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 0.0
+      }
+    },
+    {
+      "id": "cap1:se",
+      "passed": true,
+      "details": {
+        "actual": 3.5895210058549894e-07,
+        "reference": 3.589521005854989e-07,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 5.293955920339377e-23
+      }
+    },
+    {
+      "id": "cap1:ci95_low",
+      "passed": true,
+      "details": {
+        "actual": 0.00011489327799010892,
+        "reference": 0.00011489327799010892,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 0.0
+      }
+    },
+    {
+      "id": "cap1:ci95_high",
+      "passed": true,
+      "details": {
+        "actual": 0.00011630042953125252,
+        "reference": 0.00011630042953125252,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 0.0
+      }
+    },
+    {
+      "id": "cap1:paired_difference",
+      "passed": true,
+      "details": {
+        "actual": 1.19841262255242e-05,
+        "reference": 1.19841262255242e-05,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 0.0
+      }
+    },
+    {
+      "id": "cap1:paired_se",
+      "passed": true,
+      "details": {
+        "actual": 1.2460597524313156e-07,
+        "reference": 1.2460597524313156e-07,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 0.0
+      }
+    },
+    {
+      "id": "cap1:bonferroni15_ci95_low",
+      "passed": true,
+      "details": {
+        "actual": 1.1618338866503605e-05,
+        "reference": 1.1618338866503605e-05,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 0.0
+      }
+    },
+    {
+      "id": "cap1:bonferroni15_ci95_high",
+      "passed": true,
+      "details": {
+        "actual": 1.2349913584544795e-05,
+        "reference": 1.2349913584544795e-05,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 0.0
+      }
+    },
+    {
+      "id": "cap2:K",
+      "passed": true,
+      "details": {
+        "actual": 2.1588231454583386,
+        "reference": 2.1588231454583386,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 0.0
+      }
+    },
+    {
+      "id": "cap2:nonlinear_mean",
+      "passed": true,
+      "details": {
+        "actual": 0.00010713829697436417,
+        "reference": 0.00010713829697436417,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 0.0
+      }
+    },
+    {
+      "id": "cap2:se",
+      "passed": true,
+      "details": {
+        "actual": 3.761910953211598e-07,
+        "reference": 3.761910953211598e-07,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 0.0
+      }
+    },
+    {
+      "id": "cap2:ci95_low",
+      "passed": true,
+      "details": {
+        "actual": 0.00010640093134997834,
+        "reference": 0.00010640093134997834,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 0.0
+      }
+    },
+    {
+      "id": "cap2:ci95_high",
+      "passed": true,
+      "details": {
+        "actual": 0.00010787566259875,
+        "reference": 0.00010787566259875,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 0.0
+      }
+    },
+    {
+      "id": "cap2:paired_difference",
+      "passed": true,
+      "details": {
+        "actual": 3.525569439207636e-06,
+        "reference": 3.525569439207636e-06,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 0.0
+      }
+    },
+    {
+      "id": "cap2:paired_se",
+      "passed": true,
+      "details": {
+        "actual": 7.370529721009279e-08,
+        "reference": 7.370529721009279e-08,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 0.0
+      }
+    },
+    {
+      "id": "cap2:bonferroni15_ci95_low",
+      "passed": true,
+      "details": {
+        "actual": 3.3092036833945415e-06,
+        "reference": 3.3092036833945415e-06,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 0.0
+      }
+    },
+    {
+      "id": "cap2:bonferroni15_ci95_high",
+      "passed": true,
+      "details": {
+        "actual": 3.7419351950207307e-06,
+        "reference": 3.7419351950207307e-06,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 0.0
+      }
+    },
+    {
+      "id": "cap3:K",
+      "passed": true,
+      "details": {
+        "actual": 2.285812742250006,
+        "reference": 2.285812742250006,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 0.0
+      }
+    },
+    {
+      "id": "cap3:nonlinear_mean",
+      "passed": true,
+      "details": {
+        "actual": 0.00010503422832060743,
+        "reference": 0.00010503422832060743,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 0.0
+      }
+    },
+    {
+      "id": "cap3:se",
+      "passed": true,
+      "details": {
+        "actual": 3.8697476682239467e-07,
+        "reference": 3.8697476682239467e-07,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 0.0
+      }
+    },
+    {
+      "id": "cap3:ci95_low",
+      "passed": true,
+      "details": {
+        "actual": 0.00010427572580922831,
+        "reference": 0.00010427572580922831,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 0.0
+      }
+    },
+    {
+      "id": "cap3:ci95_high",
+      "passed": true,
+      "details": {
+        "actual": 0.00010579273083198654,
+        "reference": 0.00010579273083198654,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 0.0
+      }
+    },
+    {
+      "id": "cap3:paired_difference",
+      "passed": true,
+      "details": {
+        "actual": 1.4215007854509058e-06,
+        "reference": 1.421500785450906e-06,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 2.117582368135751e-22
+      }
+    },
+    {
+      "id": "cap3:paired_se",
+      "passed": true,
+      "details": {
+        "actual": 4.883238563676371e-08,
+        "reference": 4.883238563676371e-08,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 0.0
+      }
+    },
+    {
+      "id": "cap3:bonferroni15_ci95_low",
+      "passed": true,
+      "details": {
+        "actual": 1.2781507627742713e-06,
+        "reference": 1.2781507627742716e-06,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 2.117582368135751e-22
+      }
+    },
+    {
+      "id": "cap3:bonferroni15_ci95_high",
+      "passed": true,
+      "details": {
+        "actual": 1.5648508081275402e-06,
+        "reference": 1.5648508081275404e-06,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 2.117582368135751e-22
+      }
+    },
+    {
+      "id": "cap4:K",
+      "passed": true,
+      "details": {
+        "actual": 2.4128023390416726,
+        "reference": 2.4128023390416726,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 0.0
+      }
+    },
+    {
+      "id": "cap4:nonlinear_mean",
+      "passed": true,
+      "details": {
+        "actual": 0.00010392962958179292,
+        "reference": 0.00010392962958179292,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 0.0
+      }
+    },
+    {
+      "id": "cap4:se",
+      "passed": true,
+      "details": {
+        "actual": 3.9887850140751755e-07,
+        "reference": 3.988785014075175e-07,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 5.293955920339377e-23
+      }
+    },
+    {
+      "id": "cap4:ci95_low",
+      "passed": true,
+      "details": {
+        "actual": 0.00010314779476724649,
+        "reference": 0.00010314779476724649,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 0.0
+      }
+    },
+    {
+      "id": "cap4:ci95_high",
+      "passed": true,
+      "details": {
+        "actual": 0.00010471146439633936,
+        "reference": 0.00010471146439633936,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 0.0
+      }
+    },
+    {
+      "id": "cap4:paired_difference",
+      "passed": true,
+      "details": {
+        "actual": 3.1690204663639544e-07,
+        "reference": 3.1690204663639544e-07,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 0.0
+      }
+    },
+    {
+      "id": "cap4:paired_se",
+      "passed": true,
+      "details": {
+        "actual": 2.4284809849361193e-08,
+        "reference": 2.4284809849361193e-08,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 0.0
+      }
+    },
+    {
+      "id": "cap4:bonferroni15_ci95_low",
+      "passed": true,
+      "details": {
+        "actual": 2.4561271687686756e-07,
+        "reference": 2.4561271687686756e-07,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 0.0
+      }
+    },
+    {
+      "id": "cap4:bonferroni15_ci95_high",
+      "passed": true,
+      "details": {
+        "actual": 3.881913763959233e-07,
+        "reference": 3.881913763959233e-07,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 0.0
+      }
+    },
+    {
+      "id": "cap5:K",
+      "passed": true,
+      "details": {
+        "actual": 2.4762971374375065,
+        "reference": 2.4762971374375065,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 0.0
+      }
+    },
+    {
+      "id": "cap5:nonlinear_mean",
+      "passed": true,
+      "details": {
+        "actual": 0.0001036836349001854,
+        "reference": 0.00010368363490018542,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 2.710505431213761e-20
+      }
+    },
+    {
+      "id": "cap5:se",
+      "passed": true,
+      "details": {
+        "actual": 4.0519366555664093e-07,
+        "reference": 4.0519366555664093e-07,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 0.0
+      }
+    },
+    {
+      "id": "cap5:ci95_low",
+      "passed": true,
+      "details": {
+        "actual": 0.00010288942184220408,
+        "reference": 0.00010288942184220411,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 2.710505431213761e-20
+      }
+    },
+    {
+      "id": "cap5:ci95_high",
+      "passed": true,
+      "details": {
+        "actual": 0.0001044778479581667,
+        "reference": 0.00010447784795816673,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 2.710505431213761e-20
+      }
+    },
+    {
+      "id": "cap5:paired_difference",
+      "passed": true,
+      "details": {
+        "actual": 7.090736502888187e-08,
+        "reference": 7.090736502888187e-08,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 0.0
+      }
+    },
+    {
+      "id": "cap5:paired_se",
+      "passed": true,
+      "details": {
+        "actual": 1.2110802821453004e-08,
+        "reference": 1.2110802821453004e-08,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 0.0
+      }
+    },
+    {
+      "id": "cap5:bonferroni15_ci95_low",
+      "passed": true,
+      "details": {
+        "actual": 3.535546977638951e-08,
+        "reference": 3.535546977638951e-08,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 0.0
+      }
+    },
+    {
+      "id": "cap5:bonferroni15_ci95_high",
+      "passed": true,
+      "details": {
+        "actual": 1.0645926028137422e-07,
+        "reference": 1.0645926028137422e-07,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 0.0
+      }
+    },
+    {
+      "id": "cap6:K",
+      "passed": true,
+      "details": {
+        "actual": 2.5143940164750065,
+        "reference": 2.5143940164750065,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 0.0
+      }
+    },
+    {
+      "id": "cap6:nonlinear_mean",
+      "passed": true,
+      "details": {
+        "actual": 0.00010362139923357319,
+        "reference": 0.00010362139923357319,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 0.0
+      }
+    },
+    {
+      "id": "cap6:se",
+      "passed": true,
+      "details": {
+        "actual": 4.090867218633389e-07,
+        "reference": 4.0908672186333884e-07,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 5.293955920339377e-23
+      }
+    },
+    {
+      "id": "cap6:ci95_low",
+      "passed": true,
+      "details": {
+        "actual": 0.00010281955546362112,
+        "reference": 0.00010281955546362112,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 0.0
+      }
+    },
+    {
+      "id": "cap6:ci95_high",
+      "passed": true,
+      "details": {
+        "actual": 0.00010442324300352526,
+        "reference": 0.00010442324300352526,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 0.0
+      }
+    },
+    {
+      "id": "cap6:paired_difference",
+      "passed": true,
+      "details": {
+        "actual": 8.67169841666067e-09,
+        "reference": 8.67169841666067e-09,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 0.0
+      }
+    },
+    {
+      "id": "cap6:paired_se",
+      "passed": true,
+      "details": {
+        "actual": 4.837482460812381e-09,
+        "reference": 4.837482460812381e-09,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 0.0
+      }
+    },
+    {
+      "id": "cap6:bonferroni15_ci95_low",
+      "passed": true,
+      "details": {
+        "actual": -5.528984417339685e-09,
+        "reference": -5.528984417339685e-09,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 0.0
+      }
+    },
+    {
+      "id": "cap6:bonferroni15_ci95_high",
+      "passed": true,
+      "details": {
+        "actual": 2.2872381250661024e-08,
+        "reference": 2.2872381250661024e-08,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 0.0
+      }
+    },
+    {
+      "id": "cap7:K",
+      "passed": true,
+      "details": {
+        "actual": 2.527092976154173,
+        "reference": 2.527092976154173,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 0.0
+      }
+    },
+    {
+      "id": "cap7:nonlinear_mean",
+      "passed": true,
+      "details": {
+        "actual": 0.00010361386174330383,
+        "reference": 0.00010361386174330383,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 0.0
+      }
+    },
+    {
+      "id": "cap7:se",
+      "passed": true,
+      "details": {
+        "actual": 4.1040086282592676e-07,
+        "reference": 4.104008628259268e-07,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 5.293955920339377e-23
+      }
+    },
+    {
+      "id": "cap7:ci95_low",
+      "passed": true,
+      "details": {
+        "actual": 0.00010280944214850247,
+        "reference": 0.00010280944214850247,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 0.0
+      }
+    },
+    {
+      "id": "cap7:ci95_high",
+      "passed": true,
+      "details": {
+        "actual": 0.00010441828133810519,
+        "reference": 0.00010441828133810519,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 0.0
+      }
+    },
+    {
+      "id": "cap7:paired_difference",
+      "passed": true,
+      "details": {
+        "actual": 1.1342081473098213e-09,
+        "reference": 1.134208147309821e-09,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 2.0679515313825692e-25
+      }
+    },
+    {
+      "id": "cap7:paired_se",
+      "passed": true,
+      "details": {
+        "actual": 2.417630211945328e-09,
+        "reference": 2.417630211945328e-09,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 0.0
+      }
+    },
+    {
+      "id": "cap7:bonferroni15_ci95_low",
+      "passed": true,
+      "details": {
+        "actual": -5.9628718168761635e-09,
+        "reference": -5.962871816876164e-09,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 8.271806125530277e-25
+      }
+    },
+    {
+      "id": "cap7:bonferroni15_ci95_high",
+      "passed": true,
+      "details": {
+        "actual": 8.231288111495806e-09,
+        "reference": 8.231288111495806e-09,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 0.0
+      }
+    },
+    {
+      "id": "cap8:K",
+      "passed": true,
+      "details": {
+        "actual": 2.53979193583334,
+        "reference": 2.53979193583334,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 0.0
+      }
+    },
+    {
+      "id": "cap8:nonlinear_mean",
+      "passed": true,
+      "details": {
+        "actual": 0.0001036127275351565,
+        "reference": 0.0001036127275351565,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 0.0
+      }
+    },
+    {
+      "id": "cap8:se",
+      "passed": true,
+      "details": {
+        "actual": 4.117230613281346e-07,
+        "reference": 4.1172306132813466e-07,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 5.293955920339377e-23
+      }
+    },
+    {
+      "id": "cap8:ci95_low",
+      "passed": true,
+      "details": {
+        "actual": 0.00010280571632206257,
+        "reference": 0.00010280571632206257,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 0.0
+      }
+    },
+    {
+      "id": "cap8:ci95_high",
+      "passed": true,
+      "details": {
+        "actual": 0.00010441973874825044,
+        "reference": 0.00010441973874825044,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 0.0
+      }
+    },
+    {
+      "id": "cap8:paired_difference",
+      "passed": true,
+      "details": {
+        "actual": 0.0,
+        "reference": 0.0,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 0.0
+      }
+    },
+    {
+      "id": "cap8:paired_se",
+      "passed": true,
+      "details": {
+        "actual": 0.0,
+        "reference": 0.0,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 0.0
+      }
+    },
+    {
+      "id": "cap8:bonferroni15_ci95_low",
+      "passed": true,
+      "details": {
+        "actual": 0.0,
+        "reference": 0.0,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 0.0
+      }
+    },
+    {
+      "id": "cap8:bonferroni15_ci95_high",
+      "passed": true,
+      "details": {
+        "actual": 0.0,
+        "reference": 0.0,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 0.0
+      }
+    },
+    {
+      "id": "cap9:K",
+      "passed": true,
+      "details": {
+        "actual": 2.552490895512506,
+        "reference": 2.552490895512506,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 0.0
+      }
+    },
+    {
+      "id": "cap9:nonlinear_mean",
+      "passed": true,
+      "details": {
+        "actual": 0.0001036178877842144,
+        "reference": 0.0001036178877842144,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 0.0
+      }
+    },
+    {
+      "id": "cap9:se",
+      "passed": true,
+      "details": {
+        "actual": 4.130535788210185e-07,
+        "reference": 4.130535788210185e-07,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 0.0
+      }
+    },
+    {
+      "id": "cap9:ci95_low",
+      "passed": true,
+      "details": {
+        "actual": 0.0001028082686469189,
+        "reference": 0.0001028082686469189,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 0.0
+      }
+    },
+    {
+      "id": "cap9:ci95_high",
+      "passed": true,
+      "details": {
+        "actual": 0.00010442750692150989,
+        "reference": 0.00010442750692150989,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 0.0
+      }
+    },
+    {
+      "id": "cap9:paired_difference",
+      "passed": true,
+      "details": {
+        "actual": 5.160249057868861e-09,
+        "reference": 5.160249057868861e-09,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 0.0
+      }
+    },
+    {
+      "id": "cap9:paired_se",
+      "passed": true,
+      "details": {
+        "actual": 2.415268425471961e-09,
+        "reference": 2.415268425471961e-09,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 0.0
+      }
+    },
+    {
+      "id": "cap9:bonferroni15_ci95_low",
+      "passed": true,
+      "details": {
+        "actual": -1.9298977585689693e-09,
+        "reference": -1.9298977585689693e-09,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 0.0
+      }
+    },
+    {
+      "id": "cap9:bonferroni15_ci95_high",
+      "passed": true,
+      "details": {
+        "actual": 1.2250395874306691e-08,
+        "reference": 1.2250395874306691e-08,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 0.0
+      }
+    },
+    {
+      "id": "cap10:K",
+      "passed": true,
+      "details": {
+        "actual": 2.565189855191673,
+        "reference": 2.565189855191673,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 0.0
+      }
+    },
+    {
+      "id": "cap10:nonlinear_mean",
+      "passed": true,
+      "details": {
+        "actual": 0.00010362915184119518,
+        "reference": 0.00010362915184119518,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 0.0
+      }
+    },
+    {
+      "id": "cap10:se",
+      "passed": true,
+      "details": {
+        "actual": 4.1439201758072166e-07,
+        "reference": 4.143920175807216e-07,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 5.293955920339377e-23
+      }
+    },
+    {
+      "id": "cap10:ci95_low",
+      "passed": true,
+      "details": {
+        "actual": 0.00010281690925336078,
+        "reference": 0.00010281690925336078,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 0.0
+      }
+    },
+    {
+      "id": "cap10:ci95_high",
+      "passed": true,
+      "details": {
+        "actual": 0.00010444139442902958,
+        "reference": 0.00010444139442902958,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 0.0
+      }
+    },
+    {
+      "id": "cap10:paired_difference",
+      "passed": true,
+      "details": {
+        "actual": 1.6424306038671084e-08,
+        "reference": 1.6424306038671084e-08,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 0.0
+      }
+    },
+    {
+      "id": "cap10:paired_se",
+      "passed": true,
+      "details": {
+        "actual": 4.828201971538924e-09,
+        "reference": 4.828201971538924e-09,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 0.0
+      }
+    },
+    {
+      "id": "cap10:bonferroni15_ci95_low",
+      "passed": true,
+      "details": {
+        "actual": 2.250866566436753e-09,
+        "reference": 2.250866566436753e-09,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 0.0
+      }
+    },
+    {
+      "id": "cap10:bonferroni15_ci95_high",
+      "passed": true,
+      "details": {
+        "actual": 3.0597745510905414e-08,
+        "reference": 3.0597745510905414e-08,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 0.0
+      }
+    },
+    {
+      "id": "cap11:K",
+      "passed": true,
+      "details": {
+        "actual": 2.6032867342291732,
+        "reference": 2.6032867342291732,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 0.0
+      }
+    },
+    {
+      "id": "cap11:nonlinear_mean",
+      "passed": true,
+      "details": {
+        "actual": 0.00010369817863922651,
+        "reference": 0.00010369817863922651,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 0.0
+      }
+    },
+    {
+      "id": "cap11:se",
+      "passed": true,
+      "details": {
+        "actual": 4.184522260005968e-07,
+        "reference": 4.184522260005968e-07,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 0.0
+      }
+    },
+    {
+      "id": "cap11:ci95_low",
+      "passed": true,
+      "details": {
+        "actual": 0.00010287797770747092,
+        "reference": 0.00010287797770747092,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 0.0
+      }
+    },
+    {
+      "id": "cap11:ci95_high",
+      "passed": true,
+      "details": {
+        "actual": 0.0001045183795709821,
+        "reference": 0.0001045183795709821,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 0.0
+      }
+    },
+    {
+      "id": "cap11:paired_difference",
+      "passed": true,
+      "details": {
+        "actual": 8.54511040699777e-08,
+        "reference": 8.545110406997769e-08,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 1.3234889800848443e-23
+      }
+    },
+    {
+      "id": "cap11:paired_se",
+      "passed": true,
+      "details": {
+        "actual": 1.205164047244432e-08,
+        "reference": 1.205164047244432e-08,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 0.0
+      }
+    },
+    {
+      "id": "cap11:bonferroni15_ci95_low",
+      "passed": true,
+      "details": {
+        "actual": 5.007288298804671e-08,
+        "reference": 5.00728829880467e-08,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 1.3234889800848443e-23
+      }
+    },
+    {
+      "id": "cap11:bonferroni15_ci95_high",
+      "passed": true,
+      "details": {
+        "actual": 1.2082932515190868e-07,
+        "reference": 1.2082932515190868e-07,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 0.0
+      }
+    },
+    {
+      "id": "cap12:K",
+      "passed": true,
+      "details": {
+        "actual": 2.666781532625007,
+        "reference": 2.666781532625007,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 0.0
+      }
+    },
+    {
+      "id": "cap12:nonlinear_mean",
+      "passed": true,
+      "details": {
+        "actual": 0.00010392377138103186,
+        "reference": 0.00010392377138103186,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 0.0
+      }
+    },
+    {
+      "id": "cap12:se",
+      "passed": true,
+      "details": {
+        "actual": 4.2535897902383667e-07,
+        "reference": 4.253589790238367e-07,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 5.293955920339377e-23
+      }
+    },
+    {
+      "id": "cap12:ci95_low",
+      "passed": true,
+      "details": {
+        "actual": 0.00010309003264277632,
+        "reference": 0.00010309003264277632,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 0.0
+      }
+    },
+    {
+      "id": "cap12:ci95_high",
+      "passed": true,
+      "details": {
+        "actual": 0.0001047575101192874,
+        "reference": 0.0001047575101192874,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 0.0
+      }
+    },
+    {
+      "id": "cap12:paired_difference",
+      "passed": true,
+      "details": {
+        "actual": 3.1104384587533924e-07,
+        "reference": 3.1104384587533924e-07,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 0.0
+      }
+    },
+    {
+      "id": "cap12:paired_se",
+      "passed": true,
+      "details": {
+        "actual": 2.404458809986208e-08,
+        "reference": 2.404458809986208e-08,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 0.0
+      }
+    },
+    {
+      "id": "cap12:bonferroni15_ci95_low",
+      "passed": true,
+      "details": {
+        "actual": 2.4045969962853724e-07,
+        "reference": 2.4045969962853724e-07,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 0.0
+      }
+    },
+    {
+      "id": "cap12:bonferroni15_ci95_high",
+      "passed": true,
+      "details": {
+        "actual": 3.8162799212214123e-07,
+        "reference": 3.8162799212214123e-07,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 0.0
+      }
+    },
+    {
+      "id": "cap13:K",
+      "passed": true,
+      "details": {
+        "actual": 2.7937711294166743,
+        "reference": 2.7937711294166743,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 0.0
+      }
+    },
+    {
+      "id": "cap13:nonlinear_mean",
+      "passed": true,
+      "details": {
+        "actual": 0.0001047410786774728,
+        "reference": 0.0001047410786774728,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 0.0
+      }
+    },
+    {
+      "id": "cap13:se",
+      "passed": true,
+      "details": {
+        "actual": 4.3965242460140493e-07,
+        "reference": 4.396524246014049e-07,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 5.293955920339377e-23
+      }
+    },
+    {
+      "id": "cap13:ci95_low",
+      "passed": true,
+      "details": {
+        "actual": 0.0001038793236050881,
+        "reference": 0.0001038793236050881,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 0.0
+      }
+    },
+    {
+      "id": "cap13:ci95_high",
+      "passed": true,
+      "details": {
+        "actual": 0.0001056028337498575,
+        "reference": 0.0001056028337498575,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 0.0
+      }
+    },
+    {
+      "id": "cap13:paired_difference",
+      "passed": true,
+      "details": {
+        "actual": 1.1283511423162722e-06,
+        "reference": 1.1283511423162722e-06,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 0.0
+      }
+    },
+    {
+      "id": "cap13:paired_se",
+      "passed": true,
+      "details": {
+        "actual": 4.786599801295969e-08,
+        "reference": 4.786599801295969e-08,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 0.0
+      }
+    },
+    {
+      "id": "cap13:bonferroni15_ci95_low",
+      "passed": true,
+      "details": {
+        "actual": 9.87838001065362e-07,
+        "reference": 9.87838001065362e-07,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 0.0
+      }
+    },
+    {
+      "id": "cap13:bonferroni15_ci95_high",
+      "passed": true,
+      "details": {
+        "actual": 1.2688642835671825e-06,
+        "reference": 1.2688642835671825e-06,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 0.0
+      }
+    },
+    {
+      "id": "cap14:K",
+      "passed": true,
+      "details": {
+        "actual": 3.1747399197916746,
+        "reference": 3.1747399197916746,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 0.0
+      }
+    },
+    {
+      "id": "cap14:nonlinear_mean",
+      "passed": true,
+      "details": {
+        "actual": 0.00010938375382797463,
+        "reference": 0.00010938375382797463,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 0.0
+      }
+    },
+    {
+      "id": "cap14:se",
+      "passed": true,
+      "details": {
+        "actual": 4.855410325643997e-07,
+        "reference": 4.855410325643997e-07,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 0.0
+      }
+    },
+    {
+      "id": "cap14:ci95_low",
+      "passed": true,
+      "details": {
+        "actual": 0.00010843205329307455,
+        "reference": 0.00010843205329307455,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 0.0
+      }
+    },
+    {
+      "id": "cap14:ci95_high",
+      "passed": true,
+      "details": {
+        "actual": 0.00011033545436287471,
+        "reference": 0.00011033545436287471,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 0.0
+      }
+    },
+    {
+      "id": "cap14:paired_difference",
+      "passed": true,
+      "details": {
+        "actual": 5.771026292818115e-06,
+        "reference": 5.771026292818114e-06,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 8.470329472543003e-22
+      }
+    },
+    {
+      "id": "cap14:paired_se",
+      "passed": true,
+      "details": {
+        "actual": 1.1824767019361641e-07,
+        "reference": 1.1824767019361643e-07,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 1.3234889800848443e-23
+      }
+    },
+    {
+      "id": "cap14:bonferroni15_ci95_low",
+      "passed": true,
+      "details": {
+        "actual": 5.42390407090167e-06,
+        "reference": 5.4239040709016695e-06,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 8.470329472543003e-22
+      }
+    },
+    {
+      "id": "cap14:bonferroni15_ci95_high",
+      "passed": true,
+      "details": {
+        "actual": 6.118148514734559e-06,
+        "reference": 6.118148514734558e-06,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 8.470329472543003e-22
+      }
+    },
+    {
+      "id": "cap15:K",
+      "passed": true,
+      "details": {
+        "actual": 3.8096879037500098,
+        "reference": 3.8096879037500098,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 0.0
+      }
+    },
+    {
+      "id": "cap15:nonlinear_mean",
+      "passed": true,
+      "details": {
+        "actual": 0.00012149530226664844,
+        "reference": 0.00012149530226664847,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 2.710505431213761e-20
+      }
+    },
+    {
+      "id": "cap15:se",
+      "passed": true,
+      "details": {
+        "actual": 5.684578194243725e-07,
+        "reference": 5.684578194243724e-07,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 1.0587911840678754e-22
+      }
+    },
+    {
+      "id": "cap15:ci95_low",
+      "passed": true,
+      "details": {
+        "actual": 0.00012038107797965669,
+        "reference": 0.00012038107797965672,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 2.710505431213761e-20
+      }
+    },
+    {
+      "id": "cap15:ci95_high",
+      "passed": true,
+      "details": {
+        "actual": 0.00012260952655364019,
+        "reference": 0.0001226095265536402,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 2.710505431213761e-20
+      }
+    },
+    {
+      "id": "cap15:paired_difference",
+      "passed": true,
+      "details": {
+        "actual": 1.788257473149192e-05,
+        "reference": 1.7882574731491923e-05,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 3.3881317890172014e-21
+      }
+    },
+    {
+      "id": "cap15:paired_se",
+      "passed": true,
+      "details": {
+        "actual": 2.3283738443363095e-07,
+        "reference": 2.3283738443363097e-07,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 2.6469779601696886e-23
+      }
+    },
+    {
+      "id": "cap15:bonferroni15_ci95_low",
+      "passed": true,
+      "details": {
+        "actual": 1.719906840872482e-05,
+        "reference": 1.7199068408724824e-05,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 3.3881317890172014e-21
+      }
+    },
+    {
+      "id": "cap15:bonferroni15_ci95_high",
+      "passed": true,
+      "details": {
+        "actual": 1.856608105425902e-05,
+        "reference": 1.8566081054259023e-05,
+        "atol": 2e-17,
+        "rtol": 1e-12,
+        "absolute_difference": 3.3881317890172014e-21
+      }
+    },
+    {
+      "id": "four_caps_three_nonzero_contrasts",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "phase_initialization:cap_matches",
+      "passed": true,
+      "details": {
+        "actual": 2.5397919358072967,
+        "reference": 2.53979193583334,
+        "atol": 1e-08,
+        "rtol": 0.0,
+        "absolute_difference": 2.6043167622447072e-11
+      }
+    },
+    {
+      "id": "Cartesian_is_distinct_not_substituted",
+      "passed": true,
+      "details": null
+    }
+  ]
+}

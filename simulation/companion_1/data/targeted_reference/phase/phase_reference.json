@@ -1,0 +1,810 @@
+{
+  "status": "PASS",
+  "frozen_curve_slope": 3.4072924626261014,
+  "frozen_raw_endpoint_summary": {
+    "generic_predicted_slope": 2.199999999999999,
+    "scalar_fitted_slope": 2.1999999999999993,
+    "stuart_landau_predicted_slope": 3.3999999999999977,
+    "stuart_landau_fitted_slope": 3.4072924626261014,
+    "fit_window": [
+      0.001,
+      0.05
+    ],
+    "fit_points": 156,
+    "terminal_base_state": [
+      -0.6046930858613321,
+      -0.7806381197592257
+    ],
+    "terminal_tau": 30.0,
+    "terminal_convergence_error_tau25_to_tau30": 5.44892014710823e-11,
+    "phase_point_at_zero": [
+      0.6449691197387123,
+      0.034422521539344005
+    ],
+    "phase_shift_norm": 0.2288149297336669,
+    "phase_map_closure_error": 3.1401849173675503e-16,
+    "minimum_reported_tail": 8.715058113948163e-13,
+    "maximum_reported_tail": 0.00062031353212167
+  },
+  "grid": {
+    "s_start": 0.2,
+    "s_end": 0.0005,
+    "samples": 240,
+    "fit_s_low": 0.001,
+    "fit_s_high": 0.05,
+    "tail_threshold": 5e-13,
+    "fit_count": 156
+  },
+  "endpoint_transport": "yhat_T(tau)=phi_{T exp(-tau)}(y(T(1-exp(-tau))))",
+  "numerical_endpoint_convergence_is_not_a_rigorous_error_bound": true,
+  "existing_phase_plot_unchanged": true,
+  "runs": [
+    {
+      "formulation": "full_state",
+      "rtol": 2e-12,
+      "atol": 2e-13,
+      "max_tau_step": null,
+      "nfev": 1094,
+      "terminal_times_tau": [
+        25.0,
+        30.0,
+        35.0
+      ],
+      "raw_endpoints": [
+        [
+          -0.6046930859039943,
+          -0.7806381197253177
+        ],
+        [
+          -0.6046930858613373,
+          -0.7806381197592206
+        ],
+        [
+          -0.6046930858610498,
+          -0.7806381197594489
+        ]
+      ],
+      "transported_endpoints": [
+        [
+          -0.6046930858610475,
+          -0.7806381197594504
+        ],
+        [
+          -0.6046930858610478,
+          -0.7806381197594507
+        ],
+        [
+          -0.6046930858610476,
+          -0.7806381197594505
+        ]
+      ],
+      "raw_tau25_to_tau30_difference": 5.448875132900631e-11,
+      "transported_tau25_to_tau30_difference": 4.002966042486721e-16,
+      "transported_tau30_to_tau35_difference": 2.482534153247273e-16,
+      "transport_correction_at_tau30": 3.698724793979185e-13,
+      "raw_tau30_slope": 3.4072832291979225,
+      "transported_tau35_slope": 3.407363944702072,
+      "raw_fit_points": 156,
+      "transported_fit_points": 156,
+      "minimum_raw_fitted_tail": 8.325955220258656e-12,
+      "minimum_transported_fitted_tail": 8.312929668337636e-12,
+      "roundtrip_closure_of_transported_point": 6.473657049138938e-16,
+      "transported_tau35_difference_from_finest_scaled_run": 1.1968003374933924e-13
+    },
+    {
+      "formulation": "full_state",
+      "rtol": 1e-13,
+      "atol": 1e-14,
+      "max_tau_step": 0.1,
+      "nfev": 4787,
+      "terminal_times_tau": [
+        25.0,
+        30.0,
+        35.0
+      ],
+      "raw_endpoints": [
+        [
+          -0.6046930859040852,
+          -0.7806381197252407
+        ],
+        [
+          -0.6046930858614278,
+          -0.7806381197591435
+        ],
+        [
+          -0.6046930858611406,
+          -0.780638119759372
+        ]
+      ],
+      "transported_endpoints": [
+        [
+          -0.6046930858611387,
+          -0.7806381197593734
+        ],
+        [
+          -0.6046930858611383,
+          -0.7806381197593736
+        ],
+        [
+          -0.6046930858611385,
+          -0.7806381197593737
+        ]
+      ],
+      "raw_tau25_to_tau30_difference": 5.448909898877599e-11,
+      "transported_tau25_to_tau30_difference": 4.002966042486721e-16,
+      "transported_tau30_to_tau35_difference": 1.5700924586837752e-16,
+      "transport_correction_at_tau30": 3.697164861195333e-13,
+      "raw_tau30_slope": 3.407673368967154,
+      "transported_tau35_slope": 3.4077644983595428,
+      "raw_fit_points": 156,
+      "transported_fit_points": 156,
+      "minimum_raw_fitted_tail": 8.2630225911256e-12,
+      "minimum_transported_fitted_tail": 8.252239316576267e-12,
+      "roundtrip_closure_of_transported_point": 2.220446049250313e-16,
+      "transported_tau35_difference_from_finest_scaled_run": 2.0380985511143445e-15
+    },
+    {
+      "formulation": "full_state",
+      "rtol": 2.3e-14,
+      "atol": 1e-15,
+      "max_tau_step": 0.05,
+      "nfev": 9077,
+      "terminal_times_tau": [
+        25.0,
+        30.0,
+        35.0
+      ],
+      "raw_endpoints": [
+        [
+          -0.6046930859040872,
+          -0.7806381197252418
+        ],
+        [
+          -0.6046930858614299,
+          -0.7806381197591445
+        ],
+        [
+          -0.6046930858611423,
+          -0.7806381197593733
+        ]
+      ],
+      "transported_endpoints": [
+        [
+          -0.6046930858611406,
+          -0.7806381197593745
+        ],
+        [
+          -0.6046930858611406,
+          -0.7806381197593745
+        ],
+        [
+          -0.6046930858611403,
+          -0.7806381197593748
+        ]
+      ],
+      "raw_tau25_to_tau30_difference": 5.4488942996067417e-11,
+      "transported_tau25_to_tau30_difference": 0.0,
+      "transported_tau30_to_tau35_difference": 4.002966042486721e-16,
+      "transport_correction_at_tau30": 3.6956049370163076e-13,
+      "raw_tau30_slope": 3.4076771603352265,
+      "transported_tau35_slope": 3.4077676111066872,
+      "raw_fit_points": 156,
+      "transported_fit_points": 156,
+      "minimum_raw_fitted_tail": 8.262647780294746e-12,
+      "minimum_transported_fitted_tail": 8.251734957027811e-12,
+      "roundtrip_closure_of_transported_point": 2.482534153247273e-16,
+      "transported_tau35_difference_from_finest_scaled_run": 1.5700924586837752e-16
+    },
+    {
+      "formulation": "scaled_normal",
+      "rtol": 1e-13,
+      "atol": 1e-14,
+      "max_tau_step": 0.1,
+      "nfev": 4901,
+      "terminal_times_tau": [
+        25.0,
+        30.0,
+        35.0
+      ],
+      "raw_endpoints": [
+        [
+          -0.6046930859040853,
+          -0.7806381197252419
+        ],
+        [
+          -0.6046930858614279,
+          -0.7806381197591447
+        ],
+        [
+          -0.6046930858611406,
+          -0.780638119759373
+        ]
+      ],
+      "transported_endpoints": [
+        [
+          -0.6046930858611387,
+          -0.7806381197593748
+        ],
+        [
+          -0.6046930858611386,
+          -0.7806381197593747
+        ],
+        [
+          -0.6046930858611386,
+          -0.7806381197593747
+        ]
+      ],
+      "raw_tau25_to_tau30_difference": 5.448902991125138e-11,
+      "transported_tau25_to_tau30_difference": 1.5700924586837752e-16,
+      "transported_tau30_to_tau35_difference": 0.0,
+      "transport_correction_at_tau30": 3.6962957798673863e-13,
+      "raw_tau30_slope": 3.4076700402694846,
+      "transported_tau35_slope": 3.4077607655292277,
+      "raw_fit_points": 156,
+      "transported_fit_points": 156,
+      "minimum_raw_fitted_tail": 8.26320278653315e-12,
+      "minimum_transported_fitted_tail": 8.252326422010775e-12,
+      "roundtrip_closure_of_transported_point": 2.482534153247273e-16,
+      "transported_tau35_difference_from_finest_scaled_run": 1.6653345369377348e-15
+    },
+    {
+      "formulation": "scaled_normal",
+      "rtol": 2.3e-14,
+      "atol": 1e-15,
+      "max_tau_step": 0.05,
+      "nfev": 9209,
+      "terminal_times_tau": [
+        25.0,
+        30.0,
+        35.0
+      ],
+      "raw_endpoints": [
+        [
+          -0.6046930859040874,
+          -0.7806381197252417
+        ],
+        [
+          -0.6046930858614298,
+          -0.7806381197591449
+        ],
+        [
+          -0.6046930858611425,
+          -0.780638119759373
+        ]
+      ],
+      "transported_endpoints": [
+        [
+          -0.6046930858611406,
+          -0.7806381197593745
+        ],
+        [
+          -0.6046930858611403,
+          -0.7806381197593748
+        ],
+        [
+          -0.6046930858611402,
+          -0.7806381197593747
+        ]
+      ],
+      "raw_tau25_to_tau30_difference": 5.44894800519308e-11,
+      "transported_tau25_to_tau30_difference": 4.002966042486721e-16,
+      "transported_tau30_to_tau35_difference": 1.5700924586837752e-16,
+      "transport_correction_at_tau30": 3.6964741807689346e-13,
+      "raw_tau30_slope": 3.407676094576747,
+      "transported_tau35_slope": 3.4077628784096423,
+      "raw_fit_points": 156,
+      "transported_fit_points": 156,
+      "minimum_raw_fitted_tail": 8.262763108801974e-12,
+      "minimum_transported_fitted_tail": 8.252207023067956e-12,
+      "roundtrip_closure_of_transported_point": 2.482534153247273e-16,
+      "transported_tau35_difference_from_finest_scaled_run": 0.0
+    }
+  ],
+  "sensitivity": [
+    {
+      "run": 1,
+      "direction_x": 1.0,
+      "direction_y": 0.0,
+      "sign": -1,
+      "endpoint_perturbation_norm": 1e-12,
+      "fitted_slope": 3.4149188141667772,
+      "fit_points": 156
+    },
+    {
+      "run": 1,
+      "direction_x": 1.0,
+      "direction_y": 0.0,
+      "sign": 1,
+      "endpoint_perturbation_norm": 1e-12,
+      "fitted_slope": 3.39960752171688,
+      "fit_points": 156
+    },
+    {
+      "run": 1,
+      "direction_x": 0.0,
+      "direction_y": 1.0,
+      "sign": -1,
+      "endpoint_perturbation_norm": 1e-12,
+      "fitted_slope": 3.4172278649539503,
+      "fit_points": 156
+    },
+    {
+      "run": 1,
+      "direction_x": 0.0,
+      "direction_y": 1.0,
+      "sign": 1,
+      "endpoint_perturbation_norm": 1e-12,
+      "fitted_slope": 3.3977017813914583,
+      "fit_points": 156
+    },
+    {
+      "run": 1,
+      "direction_x": 0.7071067811865475,
+      "direction_y": 0.7071067811865475,
+      "sign": -1,
+      "endpoint_perturbation_norm": 1e-12,
+      "fitted_slope": 3.42014333522772,
+      "fit_points": 156
+    },
+    {
+      "run": 1,
+      "direction_x": 0.7071067811865475,
+      "direction_y": 0.7071067811865475,
+      "sign": 1,
+      "endpoint_perturbation_norm": 1e-12,
+      "fitted_slope": 3.3954177682040894,
+      "fit_points": 156
+    },
+    {
+      "run": 2,
+      "direction_x": 1.0,
+      "direction_y": 0.0,
+      "sign": -1,
+      "endpoint_perturbation_norm": 1e-12,
+      "fitted_slope": 3.415320645200637,
+      "fit_points": 156
+    },
+    {
+      "run": 2,
+      "direction_x": 1.0,
+      "direction_y": 0.0,
+      "sign": 1,
+      "endpoint_perturbation_norm": 1e-12,
+      "fitted_slope": 3.400004761890527,
+      "fit_points": 156
+    },
+    {
+      "run": 2,
+      "direction_x": 0.0,
+      "direction_y": 1.0,
+      "sign": -1,
+      "endpoint_perturbation_norm": 1e-12,
+      "fitted_slope": 3.417657437662594,
+      "fit_points": 156
+    },
+    {
+      "run": 2,
+      "direction_x": 0.0,
+      "direction_y": 1.0,
+      "sign": 1,
+      "endpoint_perturbation_norm": 1e-12,
+      "fitted_slope": 3.398076754222897,
+      "fit_points": 156
+    },
+    {
+      "run": 2,
+      "direction_x": 0.7071067811865475,
+      "direction_y": 0.7071067811865475,
+      "sign": -1,
+      "endpoint_perturbation_norm": 1e-12,
+      "fitted_slope": 3.420568162539809,
+      "fit_points": 156
+    },
+    {
+      "run": 2,
+      "direction_x": 0.7071067811865475,
+      "direction_y": 0.7071067811865475,
+      "sign": 1,
+      "endpoint_perturbation_norm": 1e-12,
+      "fitted_slope": 3.395799133315407,
+      "fit_points": 156
+    },
+    {
+      "run": 3,
+      "direction_x": 1.0,
+      "direction_y": 0.0,
+      "sign": -1,
+      "endpoint_perturbation_norm": 1e-12,
+      "fitted_slope": 3.4153239556757726,
+      "fit_points": 156
+    },
+    {
+      "run": 3,
+      "direction_x": 1.0,
+      "direction_y": 0.0,
+      "sign": 1,
+      "endpoint_perturbation_norm": 1e-12,
+      "fitted_slope": 3.400007625968266,
+      "fit_points": 156
+    },
+    {
+      "run": 3,
+      "direction_x": 0.0,
+      "direction_y": 1.0,
+      "sign": -1,
+      "endpoint_perturbation_norm": 1e-12,
+      "fitted_slope": 3.417660719230292,
+      "fit_points": 156
+    },
+    {
+      "run": 3,
+      "direction_x": 0.0,
+      "direction_y": 1.0,
+      "sign": 1,
+      "endpoint_perturbation_norm": 1e-12,
+      "fitted_slope": 3.3980798132263264,
+      "fit_points": 156
+    },
+    {
+      "run": 3,
+      "direction_x": 0.7071067811865475,
+      "direction_y": 0.7071067811865475,
+      "sign": -1,
+      "endpoint_perturbation_norm": 1e-12,
+      "fitted_slope": 3.420571629960511,
+      "fit_points": 156
+    },
+    {
+      "run": 3,
+      "direction_x": 0.7071067811865475,
+      "direction_y": 0.7071067811865475,
+      "sign": 1,
+      "endpoint_perturbation_norm": 1e-12,
+      "fitted_slope": 3.3958022293685297,
+      "fit_points": 156
+    },
+    {
+      "run": 4,
+      "direction_x": 1.0,
+      "direction_y": 0.0,
+      "sign": -1,
+      "endpoint_perturbation_norm": 1e-12,
+      "fitted_slope": 3.4153167425768634,
+      "fit_points": 156
+    },
+    {
+      "run": 4,
+      "direction_x": 1.0,
+      "direction_y": 0.0,
+      "sign": 1,
+      "endpoint_perturbation_norm": 1e-12,
+      "fitted_slope": 3.4000008593455933,
+      "fit_points": 156
+    },
+    {
+      "run": 4,
+      "direction_x": 0.0,
+      "direction_y": 1.0,
+      "sign": -1,
+      "endpoint_perturbation_norm": 1e-12,
+      "fitted_slope": 3.4176529749904145,
+      "fit_points": 156
+    },
+    {
+      "run": 4,
+      "direction_x": 0.0,
+      "direction_y": 1.0,
+      "sign": 1,
+      "endpoint_perturbation_norm": 1e-12,
+      "fitted_slope": 3.3980727824445793,
+      "fit_points": 156
+    },
+    {
+      "run": 4,
+      "direction_x": 0.7071067811865475,
+      "direction_y": 0.7071067811865475,
+      "sign": -1,
+      "endpoint_perturbation_norm": 1e-12,
+      "fitted_slope": 3.420564023721299,
+      "fit_points": 156
+    },
+    {
+      "run": 4,
+      "direction_x": 0.7071067811865475,
+      "direction_y": 0.7071067811865475,
+      "sign": 1,
+      "endpoint_perturbation_norm": 1e-12,
+      "fitted_slope": 3.3957955272224707,
+      "fit_points": 156
+    },
+    {
+      "run": 5,
+      "direction_x": 1.0,
+      "direction_y": 0.0,
+      "sign": -1,
+      "endpoint_perturbation_norm": 1e-12,
+      "fitted_slope": 3.415318713965109,
+      "fit_points": 156
+    },
+    {
+      "run": 5,
+      "direction_x": 1.0,
+      "direction_y": 0.0,
+      "sign": 1,
+      "endpoint_perturbation_norm": 1e-12,
+      "fitted_slope": 3.400003562676365,
+      "fit_points": 156
+    },
+    {
+      "run": 5,
+      "direction_x": 0.0,
+      "direction_y": 1.0,
+      "sign": -1,
+      "endpoint_perturbation_norm": 1e-12,
+      "fitted_slope": 3.4176558707829283,
+      "fit_points": 156
+    },
+    {
+      "run": 5,
+      "direction_x": 0.0,
+      "direction_y": 1.0,
+      "sign": 1,
+      "endpoint_perturbation_norm": 1e-12,
+      "fitted_slope": 3.39807522659186,
+      "fit_points": 156
+    },
+    {
+      "run": 5,
+      "direction_x": 0.7071067811865475,
+      "direction_y": 0.7071067811865475,
+      "sign": -1,
+      "endpoint_perturbation_norm": 1e-12,
+      "fitted_slope": 3.4205668060936154,
+      "fit_points": 156
+    },
+    {
+      "run": 5,
+      "direction_x": 0.7071067811865475,
+      "direction_y": 0.7071067811865475,
+      "sign": 1,
+      "endpoint_perturbation_norm": 1e-12,
+      "fitted_slope": 3.3957976910913286,
+      "fit_points": 156
+    }
+  ],
+  "interpretation": "The raw 25-to-30 difference includes retained reduced-flow motion. Transport removes this motion; solver/formulation comparisons assess numerical consistency but do not certify the exact terminal point.",
+  "checks_passed": 45,
+  "checks": [
+    {
+      "id": "source:raw_terminal_difference_is_not_transport",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "source:terminal_mean_is_tau30",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "frozen_curve:registered_slope",
+      "passed": true,
+      "details": {
+        "actual": 3.4072924626261014,
+        "reference": 3.4072924626261014,
+        "atol": 1e-12,
+        "rtol": 0.0,
+        "absolute_difference": 0.0
+      }
+    },
+    {
+      "id": "frozen_curve:fit_count",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "run1:raw_endpoint_motion_above_minimum_tail",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "run1:transported_25_30_difference",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "run1:transported_30_35_difference",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "run1:raw_and_transported_fit_points",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "run1:finite_window_slope_regime",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "run1:roundtrip_not_error_certificate",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "run2:raw_endpoint_motion_above_minimum_tail",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "run2:transported_25_30_difference",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "run2:transported_30_35_difference",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "run2:raw_and_transported_fit_points",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "run2:finite_window_slope_regime",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "run2:roundtrip_not_error_certificate",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "run3:raw_endpoint_motion_above_minimum_tail",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "run3:transported_25_30_difference",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "run3:transported_30_35_difference",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "run3:raw_and_transported_fit_points",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "run3:finite_window_slope_regime",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "run3:roundtrip_not_error_certificate",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "run4:raw_endpoint_motion_above_minimum_tail",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "run4:transported_25_30_difference",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "run4:transported_30_35_difference",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "run4:raw_and_transported_fit_points",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "run4:finite_window_slope_regime",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "run4:roundtrip_not_error_certificate",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "run5:raw_endpoint_motion_above_minimum_tail",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "run5:transported_25_30_difference",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "run5:transported_30_35_difference",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "run5:raw_and_transported_fit_points",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "run5:finite_window_slope_regime",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "run5:roundtrip_not_error_certificate",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "run1:terminal_solver_formulation_agreement",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "run2:terminal_solver_formulation_agreement",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "run3:terminal_solver_formulation_agreement",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "run4:terminal_solver_formulation_agreement",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "run5:terminal_solver_formulation_agreement",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "formulation0:exact_cubic_expansion",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "formulation0:mean_remainder",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "formulation1:exact_cubic_expansion",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "formulation1:mean_remainder",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "formulation2:exact_cubic_expansion",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "formulation2:mean_remainder",
+      "passed": true,
+      "details": null
+    }
+  ]
+}

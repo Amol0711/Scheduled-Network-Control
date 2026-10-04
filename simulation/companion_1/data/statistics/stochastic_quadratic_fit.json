@@ -1,0 +1,40 @@
+{
+  "ratios": [
+    0.975,
+    0.99,
+    0.995,
+    1.0,
+    1.005,
+    1.01,
+    1.025
+  ],
+  "vertex": 2.5366693000515146,
+  "se": 0.00490771009694013,
+  "ci95_low": 2.5270497828302325,
+  "ci95_high": 2.5462888172727967,
+  "r_squared": 0.9997282852820355,
+  "coefficients": [
+    0.00010361275188833863,
+    3.074998378671561e-07,
+    0.00012505230565642612
+  ],
+  "covariance_of_mean": [
+    [
+      1.695160453082499e-13,
+      1.092185488063451e-13,
+      -1.5916207207048363e-14
+    ],
+    [
+      1.092185488063451e-13,
+      2.334500355390234e-13,
+      -2.2881672898176354e-14
+    ],
+    [
+      -1.5916207207048363e-14,
+      -2.2881672898176354e-14,
+      1.4954381645055856e-13
+    ]
+  ],
+  "estimand": "Vertex of the least-squares quadratic projection of fixed-step expected outcomes on the specified seven-point design.",
+  "interval_scope": "Approximate delta-method sampling interval. Excludes quadratic-model error, grid error and time-discretization bias."
+}

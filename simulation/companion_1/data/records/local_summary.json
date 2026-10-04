@@ -1,0 +1,103 @@
+{
+  "sample_count": 1000,
+  "terminal_time": 1.99999,
+  "terminal_gap": 1e-05,
+  "tau_terminal": 12.206072645530174,
+  "initial_mean": [
+    0.8732839051438487,
+    0.0495430649961594
+  ],
+  "initial_mean_radius": 0.8746881125707061,
+  "old_initial_disagreement": 1.3217504433004645,
+  "local_initial_disagreement": 0.01,
+  "terminal_disagreement": 3.84572777911874e-09,
+  "terminal_bound": 1.1663257876599996e-08,
+  "terminal_q_over_bound": 0.32973015085557067,
+  "max_sampled_q_over_bound": 0.9999999999999998,
+  "mean_radius_min": 0.8746881125707061,
+  "mean_radius_max": 0.9971992473838244,
+  "max_sampled_mean_error": 3.6021939512030323e-06,
+  "terminal_mean_error": 6.057509741328334e-07,
+  "minimum_sampled_mean_boundary_margin": 0.00480075261617563,
+  "selected_solver": {
+    "run": "scaled_2",
+    "method": "DOP853",
+    "clock": "tau",
+    "rtol": 1e-12,
+    "atol": 1e-14,
+    "max_step": 0.1,
+    "nfev": 2042,
+    "terminal_q": 3.84572777911874e-09,
+    "terminal_mean_radius": 0.9971992473838244,
+    "max_relative_q_difference_to_refined": 1.6081115356238029e-12,
+    "max_mean_difference_to_refined": 2.515696706598296e-12
+  },
+  "solver_comparison": [
+    {
+      "run": "scaled_1",
+      "method": "DOP853",
+      "clock": "tau",
+      "rtol": 1e-11,
+      "atol": 1e-13,
+      "max_step": 0.2,
+      "nfev": 1184,
+      "terminal_q": 3.845727779117522e-09,
+      "terminal_mean_radius": 0.9971992473835688,
+      "max_relative_q_difference_to_refined": 1.5693851980553252e-11,
+      "max_mean_difference_to_refined": 2.3909912585550075e-11
+    },
+    {
+      "run": "scaled_2",
+      "method": "DOP853",
+      "clock": "tau",
+      "rtol": 1e-12,
+      "atol": 1e-14,
+      "max_step": 0.1,
+      "nfev": 2042,
+      "terminal_q": 3.84572777911874e-09,
+      "terminal_mean_radius": 0.9971992473838244,
+      "max_relative_q_difference_to_refined": 1.6081115356238029e-12,
+      "max_mean_difference_to_refined": 2.515696706598296e-12
+    },
+    {
+      "run": "scaled_3",
+      "method": "DOP853",
+      "clock": "tau",
+      "rtol": 1e-13,
+      "atol": 1e-15,
+      "max_step": 0.05,
+      "nfev": 3827,
+      "terminal_q": 3.8457277791188745e-09,
+      "terminal_mean_radius": 0.9971992473838535,
+      "max_relative_q_difference_to_refined": 0.0,
+      "max_mean_difference_to_refined": 0.0
+    },
+    {
+      "run": "full_state_tau",
+      "method": "DOP853",
+      "clock": "tau",
+      "rtol": 1e-12,
+      "atol": 1e-14,
+      "max_step": 0.1,
+      "nfev": 2066,
+      "terminal_q": 3.8457278922087125e-09,
+      "terminal_mean_radius": 0.9971992473838328,
+      "max_relative_q_difference_to_refined": 4.3776093499851845e-08,
+      "max_mean_difference_to_refined": 2.3722792390165198e-12
+    },
+    {
+      "run": "full_state_physical",
+      "method": "DOP853",
+      "clock": "t",
+      "rtol": 1e-12,
+      "atol": 1e-14,
+      "max_step": 0.025,
+      "nfev": 1514,
+      "terminal_q": 3.845763476891213e-09,
+      "terminal_mean_radius": 0.9971992473838536,
+      "max_relative_q_difference_to_refined": 9.28244909391275e-06,
+      "max_mean_difference_to_refined": 6.997972719259866e-14
+    }
+  ],
+  "integration_note": "Numerical integration stops at T-1e-5. Exact contact at T and continuous-time tube invariance follow from the analytical gate and the main theorem, not from the sampled trajectory."
+}

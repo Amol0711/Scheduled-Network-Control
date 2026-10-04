@@ -1,0 +1,128 @@
+{
+  "experiment": "Network",
+  "N": 6,
+  "T": 2.0,
+  "common_snapshot": 1.99999,
+  "T_minus_snapshot": 1e-05,
+  "resolution_floor": 1e-14,
+  "alpha": 1.0,
+  "b_sl": 1.0,
+  "omega": 2.0,
+  "k0": 1.2,
+  "lambda2_ring": 0.9999999999999991,
+  "rho_star": 1.1999999999999988,
+  "fitted_main_exponent": 1.1996984425895174,
+  "max_graph_exponent_absolute_error": 0.001450911842219904,
+  "quadratic_tangential_offset_slope": 1.9761166019943055,
+  "phase_map_validation": {
+    "generic_predicted_slope": 2.199999999999999,
+    "scalar_fitted_slope": 2.1999999999999993,
+    "stuart_landau_predicted_slope": 3.3999999999999977,
+    "stuart_landau_fitted_slope": 3.4072924626261014,
+    "fit_window": [
+      0.001,
+      0.05
+    ],
+    "fit_points": 156,
+    "terminal_base_state": [
+      -0.6046930858613321,
+      -0.7806381197592257
+    ],
+    "terminal_tau": 30.0,
+    "terminal_convergence_error_tau25_to_tau30": 5.44892014710823e-11,
+    "phase_point_at_zero": [
+      0.6449691197387123,
+      0.034422521539344005
+    ],
+    "phase_shift_norm": 0.2288149297336669,
+    "phase_map_closure_error": 3.1401849173675503e-16,
+    "minimum_reported_tail": 8.715058113948163e-13,
+    "maximum_reported_tail": 0.00062031353212167
+  },
+  "full_clock_phase_regression": {
+    "common_snapshot": 1.99999,
+    "T_minus_snapshot": 1.0000000000065512e-05,
+    "tau_at_snapshot": 12.206072645523623,
+    "continuous_phase_error": 20.41208384685886,
+    "legacy_uniform_t_unwrap_error": 14.128898539677415,
+    "alias_gap": 6.283185307181444,
+    "alias_gap_over_2pi": 1.0000000000002958,
+    "limit_cycle_closed_form_excess": 20.412165291047245,
+    "continuous_minus_closed_form": -8.144418838540446e-05
+  },
+  "sigma_network": 0.002,
+  "Kopt_network_modal": 2.53979193583334,
+  "max_nonlinear_modal_relative_mse_error": 0.044480096385107616,
+  "method_metrics": {
+    "constant": {
+      "label": "constant profile",
+      "profile_class": "bounded nonadmissible profile",
+      "achieved_final_time": 1.99999,
+      "normalized_offset_I_over_T": 0.5823381567398319,
+      "terminal_disagreement": 0.3410199407404392,
+      "terminal_disagreement_report": "0.341019941",
+      "max_reduced_error": 0.060815657886310256,
+      "terminal_reduced_error": 0.02196622744527849,
+      "phase_error": -0.003639202817675269,
+      "peak_control": 1.7374127810961886,
+      "energy": 0.8658420862018001
+    },
+    "fiber_ptc": {
+      "label": "inverse-time profile",
+      "profile_class": "admissible fiber-only profile",
+      "achieved_final_time": 1.99999,
+      "normalized_offset_I_over_T": 0.4545454545454548,
+      "terminal_disagreement": 4.980185540319142e-07,
+      "terminal_disagreement_report": "4.98018554e-07",
+      "max_reduced_error": 0.05825051722604293,
+      "terminal_reduced_error": 0.010305256907898519,
+      "phase_error": -0.0033509469219445975,
+      "peak_control": 1.7374127810961886,
+      "energy": 1.2355834094916753
+    },
+    "xu_liu_l2": {
+      "label": "inverse-square / Xu--Liu (ell=2)",
+      "profile_class": "admissible fiber-only profile",
+      "achieved_final_time": 1.99999,
+      "normalized_offset_I_over_T": 0.3688785617262583,
+      "terminal_disagreement": 2.482534153247273e-16,
+      "terminal_disagreement_report": "<1e-14",
+      "max_reduced_error": 0.055973045117514234,
+      "terminal_reduced_error": 0.007109168702023908,
+      "phase_error": -0.0031637386628622366,
+      "peak_control": 1.7374127810961886,
+      "energy": 1.466260748762893
+    },
+    "capped": {
+      "label": "capped inverse-time (K=2.540)",
+      "profile_class": "finite capped profile",
+      "achieved_final_time": 1.99999,
+      "normalized_offset_I_over_T": 0.4581238155725485,
+      "terminal_disagreement": 0.04900947612662962,
+      "terminal_disagreement_report": "0.0490094761",
+      "max_reduced_error": 0.05825051722604293,
+      "terminal_reduced_error": 0.010409292746270993,
+      "phase_error": -0.003349847046118626,
+      "peak_control": 1.7374127810961886,
+      "energy": 1.2034405638453873
+    },
+    "full_clock": {
+      "label": "full-clock ablation",
+      "profile_class": "tangential-clock ablation",
+      "achieved_final_time": 1.99999,
+      "normalized_offset_I_over_T": NaN,
+      "terminal_disagreement": 5.047193305801077e-07,
+      "terminal_disagreement_report": "5.04719331e-07",
+      "max_reduced_error": 1.9963277524643295,
+      "terminal_reduced_error": 1.406384421101335,
+      "phase_error": 20.41208384685886,
+      "peak_control": 1.7374127810961886,
+      "energy": 1.259392283698882
+    }
+  },
+  "network_numerical_validation": {
+    "status": "PASS",
+    "checks_passed": 20,
+    "checks_total": 20
+  }
+}

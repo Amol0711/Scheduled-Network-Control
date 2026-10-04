@@ -1,0 +1,475 @@
+{
+  "scope": "Independent deterministic re-integration, no overwrite of Table S1 or archived coupling energies.",
+  "normalization": "kappa1(t)=1/(T-t); dt/dtau=T exp(-tau)",
+  "parameters": {
+    "N": 6,
+    "T": 2.0,
+    "k0": 1.2,
+    "omega": 2.0,
+    "alpha": 1,
+    "bSL": 1
+  },
+  "initial_state": [
+    [
+      0.5487666516553656,
+      -0.5112290700175006
+    ],
+    [
+      1.1413611753903854,
+      -0.5097005663244627
+    ],
+    [
+      0.889893970142438,
+      -0.1344943192262393
+    ],
+    [
+      1.1314202467063397,
+      0.20588400943969778
+    ],
+    [
+      0.7095959382234274,
+      0.36942334043318636
+    ],
+    [
+      0.8186654487451362,
+      0.877374995672275
+    ]
+  ],
+  "preferred_snapshot_run": {
+    "nominal_T_minus_t": 1e-05,
+    "actual_T_minus_t": 1.0000000000065512e-05,
+    "t_star": 1.99999,
+    "tau_star": 12.206072645523623,
+    "rtol": 2.3e-14,
+    "atol": 1e-15,
+    "coupling_energy": 1.2593922836984972,
+    "drift_warp_energy": 2399448.0144150066,
+    "cross_energy": -0.10973109273849226,
+    "total_energy_direct_integral": 2399449.164076198,
+    "total_energy_from_components": 2399449.164076198,
+    "component_identity_absolute_error": 1.5510416562225515e-10,
+    "continuous_phase_excess": 20.41208384685857,
+    "native_vector_field_residual_in_regular_clock": 2.220446049250313e-16,
+    "delta_times_drift_warp_energy": 23.99448014430726,
+    "cycle_exact_warp_energy": 2399450.108257292,
+    "finite_amplitude_minus_cycle_warp_energy": -2.09384228521958,
+    "mean_radius": 0.9999999999809353,
+    "nfev": 3617
+  },
+  "reference_coupling_value_unchanged": 1.259392283698882,
+  "time_precision": "nominal delta=1e-5, with t_star=2.0-1e-5 and delta=2.0-t_star in binary64, matching the original code.",
+  "cycle_exact_integral": "N omega^2 a_star^2 [1/delta-1/T-2 log(T/delta)+(T-delta)]",
+  "asymptotic_cycle_coefficient": 24,
+  "error_certificate": false,
+  "snapshot_refinement": [
+    {
+      "nominal_T_minus_t": 1e-05,
+      "actual_T_minus_t": 1.0000000000065512e-05,
+      "t_star": 1.99999,
+      "tau_star": 12.206072645523623,
+      "rtol": 1e-10,
+      "atol": 1e-12,
+      "coupling_energy": 1.2593922837269507,
+      "drift_warp_energy": 2399448.014519448,
+      "cross_energy": -0.10973109271354772,
+      "total_energy_direct_integral": 2399449.1641806387,
+      "total_energy_from_components": 2399449.164180639,
+      "component_identity_absolute_error": 3.3550165423612555e-10,
+      "continuous_phase_excess": 20.412083846858245,
+      "native_vector_field_residual_in_regular_clock": 2.220446049250313e-16,
+      "delta_times_drift_warp_energy": 23.994480145351673,
+      "cycle_exact_warp_energy": 2399450.108257292,
+      "finite_amplitude_minus_cycle_warp_energy": -2.093737843912095,
+      "mean_radius": 0.9999999999867041,
+      "nfev": 1313
+    },
+    {
+      "nominal_T_minus_t": 1e-05,
+      "actual_T_minus_t": 1.0000000000065512e-05,
+      "t_star": 1.99999,
+      "tau_star": 12.206072645523623,
+      "rtol": 1e-12,
+      "atol": 1e-13,
+      "coupling_energy": 1.259392283698873,
+      "drift_warp_energy": 2399448.0144163626,
+      "cross_energy": -0.10973109270773071,
+      "total_energy_direct_integral": 2399449.164077554,
+      "total_energy_from_components": 2399449.164077554,
+      "component_identity_absolute_error": 1.243426195340902e-10,
+      "continuous_phase_excess": 20.41208384685857,
+      "native_vector_field_residual_in_regular_clock": 2.220446049250313e-16,
+      "delta_times_drift_warp_energy": 23.994480144320818,
+      "cycle_exact_warp_energy": 2399450.108257292,
+      "finite_amplitude_minus_cycle_warp_energy": -2.0938409292139113,
+      "mean_radius": 0.9999999999810222,
+      "nfev": 2165
+    },
+    {
+      "nominal_T_minus_t": 1e-05,
+      "actual_T_minus_t": 1.0000000000065512e-05,
+      "t_star": 1.99999,
+      "tau_star": 12.206072645523623,
+      "rtol": 2.3e-14,
+      "atol": 1e-15,
+      "coupling_energy": 1.2593922836984972,
+      "drift_warp_energy": 2399448.0144150066,
+      "cross_energy": -0.10973109273849226,
+      "total_energy_direct_integral": 2399449.164076198,
+      "total_energy_from_components": 2399449.164076198,
+      "component_identity_absolute_error": 1.5510416562225515e-10,
+      "continuous_phase_excess": 20.41208384685857,
+      "native_vector_field_residual_in_regular_clock": 2.220446049250313e-16,
+      "delta_times_drift_warp_energy": 23.99448014430726,
+      "cycle_exact_warp_energy": 2399450.108257292,
+      "finite_amplitude_minus_cycle_warp_energy": -2.09384228521958,
+      "mean_radius": 0.9999999999809353,
+      "nfev": 3617
+    }
+  ],
+  "cutoff_series": [
+    {
+      "nominal_T_minus_t": 0.001,
+      "actual_T_minus_t": 0.0009999999999998899,
+      "t_star": 1.999,
+      "tau_star": 7.600902459542192,
+      "rtol": 1e-12,
+      "atol": 1e-13,
+      "coupling_energy": 1.2593757775632177,
+      "drift_warp_energy": 23669.047666460297,
+      "cross_energy": -0.10973109272127007,
+      "total_energy_direct_integral": 23670.197311145137,
+      "total_energy_from_components": 23670.19731114514,
+      "component_identity_absolute_error": 3.999189868153508e-12,
+      "continuous_phase_excess": 11.20372347489571,
+      "native_vector_field_residual_in_regular_clock": 2.220446049250313e-16,
+      "delta_times_drift_warp_energy": 23.66904766645769,
+      "cycle_exact_warp_energy": 23671.13268194462,
+      "finite_amplitude_minus_cycle_warp_energy": -2.0850154843210476,
+      "mean_radius": 0.9999998149717901,
+      "nfev": 2546
+    },
+    {
+      "nominal_T_minus_t": 0.0001,
+      "actual_T_minus_t": 9.999999999998899e-05,
+      "t_star": 1.9999,
+      "tau_star": 9.903487552536237,
+      "rtol": 1e-12,
+      "atol": 1e-13,
+      "coupling_energy": 1.2593916517365507,
+      "drift_warp_energy": 239558.53717296704,
+      "cross_energy": -0.10973109272753424,
+      "total_energy_direct_integral": 239559.68683352607,
+      "total_energy_from_components": 239559.68683352607,
+      "component_identity_absolute_error": 1.3729989367661233e-12,
+      "continuous_phase_excess": 15.807093660883801,
+      "native_vector_field_residual_in_regular_clock": 2.220446049250313e-16,
+      "delta_times_drift_warp_energy": 23.955853717294065,
+      "cycle_exact_warp_energy": 239560.6301975047,
+      "finite_amplitude_minus_cycle_warp_energy": -2.0930245376657695,
+      "mean_radius": 0.9999999981094517,
+      "nfev": 2546
+    },
+    {
+      "nominal_T_minus_t": 1e-05,
+      "actual_T_minus_t": 1.0000000000065512e-05,
+      "t_star": 1.99999,
+      "tau_star": 12.206072645523623,
+      "rtol": 1e-12,
+      "atol": 1e-13,
+      "coupling_energy": 1.259392283698873,
+      "drift_warp_energy": 2399448.0144179063,
+      "cross_energy": -0.10973109269503717,
+      "total_energy_direct_integral": 2399449.164079098,
+      "total_energy_from_components": 2399449.1640790976,
+      "component_identity_absolute_error": 5.77310366178807e-10,
+      "continuous_phase_excess": 20.41208384685857,
+      "native_vector_field_residual_in_regular_clock": 2.220446049250313e-16,
+      "delta_times_drift_warp_energy": 23.994480144336254,
+      "cycle_exact_warp_energy": 2399450.108257292,
+      "finite_amplitude_minus_cycle_warp_energy": -2.093839385546744,
+      "mean_radius": 0.999999999980608,
+      "nfev": 2546
+    },
+    {
+      "nominal_T_minus_t": 1e-06,
+      "actual_T_minus_t": 9.999999999177334e-07,
+      "t_star": 1.999999,
+      "tau_star": 14.508657738606486,
+      "rtol": 1e-12,
+      "atol": 1e-13,
+      "coupling_energy": 1.259392308857746,
+      "drift_warp_energy": 23999337.492467437,
+      "cross_energy": -0.10973109347021993,
+      "total_energy_direct_integral": 23999338.64212865,
+      "total_energy_from_components": 23999338.642128654,
+      "component_identity_absolute_error": 3.304119741698308e-09,
+      "continuous_phase_excess": 25.017236033024297,
+      "native_vector_field_residual_in_regular_clock": 2.220446049250313e-16,
+      "delta_times_drift_warp_energy": 23.999337490493094,
+      "cycle_exact_warp_energy": 23999339.586378947,
+      "finite_amplitude_minus_cycle_warp_energy": -2.09391150996089,
+      "mean_radius": 0.9999999999998898,
+      "nfev": 2546
+    }
+  ],
+  "status": "PASS",
+  "checks_passed": 32,
+  "checks": [
+    {
+      "id": "run0:coupling_reference",
+      "passed": true,
+      "details": {
+        "actual": 1.2593922837269507,
+        "reference": 1.259392283698882,
+        "atol": 2e-09,
+        "rtol": 0.0,
+        "absolute_difference": 2.8068658508573208e-11
+      }
+    },
+    {
+      "id": "run0:phase_reference",
+      "passed": true,
+      "details": {
+        "actual": 20.412083846858245,
+        "reference": 20.41208384685886,
+        "atol": 2e-08,
+        "rtol": 0.0,
+        "absolute_difference": 6.146194664324867e-13
+      }
+    },
+    {
+      "id": "run0:total_component_identity",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "run0:native_dynamics_identity",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "run0:cross_is_nonzero_negative",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "run1:coupling_reference",
+      "passed": true,
+      "details": {
+        "actual": 1.259392283698873,
+        "reference": 1.259392283698882,
+        "atol": 2e-09,
+        "rtol": 0.0,
+        "absolute_difference": 9.103828801926284e-15
+      }
+    },
+    {
+      "id": "run1:phase_reference",
+      "passed": true,
+      "details": {
+        "actual": 20.41208384685857,
+        "reference": 20.41208384685886,
+        "atol": 2e-08,
+        "rtol": 0.0,
+        "absolute_difference": 2.877698079828406e-13
+      }
+    },
+    {
+      "id": "run1:total_component_identity",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "run1:native_dynamics_identity",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "run1:cross_is_nonzero_negative",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "run2:coupling_reference",
+      "passed": true,
+      "details": {
+        "actual": 1.2593922836984972,
+        "reference": 1.259392283698882,
+        "atol": 2e-09,
+        "rtol": 0.0,
+        "absolute_difference": 3.8480330033507926e-13
+      }
+    },
+    {
+      "id": "run2:phase_reference",
+      "passed": true,
+      "details": {
+        "actual": 20.41208384685857,
+        "reference": 20.41208384685886,
+        "atol": 2e-08,
+        "rtol": 0.0,
+        "absolute_difference": 2.877698079828406e-13
+      }
+    },
+    {
+      "id": "run2:total_component_identity",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "run2:native_dynamics_identity",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "run2:cross_is_nonzero_negative",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "run0:refinement:coupling_energy",
+      "passed": true,
+      "details": {
+        "actual": 1.2593922837269507,
+        "reference": 1.2593922836984972,
+        "atol": 3e-08,
+        "rtol": 2e-09,
+        "absolute_difference": 2.8453461808908287e-11
+      }
+    },
+    {
+      "id": "run0:refinement:drift_warp_energy",
+      "passed": true,
+      "details": {
+        "actual": 2399448.014519448,
+        "reference": 2399448.0144150066,
+        "atol": 3e-08,
+        "rtol": 2e-09,
+        "absolute_difference": 0.00010444130748510361
+      }
+    },
+    {
+      "id": "run0:refinement:cross_energy",
+      "passed": true,
+      "details": {
+        "actual": -0.10973109271354772,
+        "reference": -0.10973109273849226,
+        "atol": 3e-08,
+        "rtol": 2e-09,
+        "absolute_difference": 2.494453255064144e-11
+      }
+    },
+    {
+      "id": "run0:refinement:total_energy_direct_integral",
+      "passed": true,
+      "details": {
+        "actual": 2399449.1641806387,
+        "reference": 2399449.164076198,
+        "atol": 3e-08,
+        "rtol": 2e-09,
+        "absolute_difference": 0.0001044408418238163
+      }
+    },
+    {
+      "id": "run0:refinement:continuous_phase_excess",
+      "passed": true,
+      "details": {
+        "actual": 20.412083846858245,
+        "reference": 20.41208384685857,
+        "atol": 3e-08,
+        "rtol": 2e-09,
+        "absolute_difference": 3.268496584496461e-13
+      }
+    },
+    {
+      "id": "run1:refinement:coupling_energy",
+      "passed": true,
+      "details": {
+        "actual": 1.259392283698873,
+        "reference": 1.2593922836984972,
+        "atol": 3e-08,
+        "rtol": 2e-09,
+        "absolute_difference": 3.7569947153315297e-13
+      }
+    },
+    {
+      "id": "run1:refinement:drift_warp_energy",
+      "passed": true,
+      "details": {
+        "actual": 2399448.0144163626,
+        "reference": 2399448.0144150066,
+        "atol": 3e-08,
+        "rtol": 2e-09,
+        "absolute_difference": 1.3560056686401367e-06
+      }
+    },
+    {
+      "id": "run1:refinement:cross_energy",
+      "passed": true,
+      "details": {
+        "actual": -0.10973109270773071,
+        "reference": -0.10973109273849226,
+        "atol": 3e-08,
+        "rtol": 2e-09,
+        "absolute_difference": 3.076154608816495e-11
+      }
+    },
+    {
+      "id": "run1:refinement:total_energy_direct_integral",
+      "passed": true,
+      "details": {
+        "actual": 2399449.164077554,
+        "reference": 2399449.164076198,
+        "atol": 3e-08,
+        "rtol": 2e-09,
+        "absolute_difference": 1.3560056686401367e-06
+      }
+    },
+    {
+      "id": "run1:refinement:continuous_phase_excess",
+      "passed": true,
+      "details": {
+        "actual": 20.41208384685857,
+        "reference": 20.41208384685857,
+        "atol": 3e-08,
+        "rtol": 2e-09,
+        "absolute_difference": 0.0
+      }
+    },
+    {
+      "id": "cutoff_series:increasing_warp_energy",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "cutoff_series:scaled_coefficient_approaches_24",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "cutoff_series:last_coefficient_within_1e-3",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "cutoff0:component_identity",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "cutoff1:component_identity",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "cutoff2:component_identity",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "cutoff3:component_identity",
+      "passed": true,
+      "details": null
+    }
+  ]
+}

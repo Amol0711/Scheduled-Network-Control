@@ -1,0 +1,552 @@
+{
+  "status": "PASS",
+  "parameters": {
+    "p": 3,
+    "eta0": "1",
+    "rho": "1.2",
+    "T": "1"
+  },
+  "historical_record_sha256": "097a13d941088921bb18d9525ec49c2461b3b6889145f8c5a55ae3fbc23ead35",
+  "supersedes": "The maximum 9.1e-9 precision claim, not the p>1 asymptotic theorem.",
+  "precision_runs": [
+    {
+      "precision_digits": 60,
+      "sigma": "1e-5",
+      "theta_root": "2.616731378501548419795038076020492312020407574269968",
+      "K_derivative_root": "17.91750056418439691639823589327301198370066946396639",
+      "K_Lambert": "17.91750070477085552560097252529392305651044572415997",
+      "signed_relative_error_Lambert_over_reference_minus_one": "0.000000007846320869676625018053015583638856965485276463835176",
+      "relative_error": "0.000000007846320869676625018053015583638856965485276463835176",
+      "optimized_rms": "0.00003377082044519026646344617574004407331805943462510071",
+      "bias_squared": "0.00000000006541829306882439833584817605600705792096485234360238",
+      "variance_pre_cap": "6.504724197221811105297233120066645035288567290294501e-17",
+      "variance_cap": "0.000000001075049955425214536618568885976660849162854139275393",
+      "scaled_derivative_residual": "-6.579082949601825259620365074468074123577698705789658e-60",
+      "theta_bracket_left": "2.616731378501548419795038076019492312020407574269968",
+      "theta_bracket_right": "2.616731378501548419795038076021492312020407574269968",
+      "derivative_left": "-2.369209347428477107587096209375397453961863604566672e-28",
+      "derivative_right": "2.369209347428477107587096209334551556699343303520919e-28",
+      "quadrature_vs_antiderivative_K_relative_difference": "0.0",
+      "precap_quadrature_vs_antiderivative_relative_difference": "3.267083020877099396250633628234565226309882388578613e-60",
+      "analytic_vs_automatic_derivative_relative_difference": "3.820153503697008365473062321014273768192341050073706e-57",
+      "finite_objective_probe_count": 40,
+      "finite_objective_probes_above_candidate": true,
+      "derivative_negative_below_candidate": true,
+      "derivative_positive_above_candidate": true,
+      "scope": "Numerical stationarity, finite probes and precision refinement; not a global-optimality proof."
+    },
+    {
+      "precision_digits": 60,
+      "sigma": "1e-8",
+      "theta_root": "3.25943510567201300403843034190608334987220389397463",
+      "K_derivative_root": "34.62796870779218078525949688446706529174009291823806",
+      "K_Lambert": "34.62796870781343184682689079230499668502364417438021",
+      "signed_relative_error_Lambert_over_reference_minus_one": "0.000000000000613696452908364622889269412611012039309242882737228",
+      "relative_error": "0.000000000000613696452908364622889269412611012039309242882737228",
+      "optimized_rms": "0.00000004646680535725092208514252729520286535094846606502881",
+      "bias_squared": "8.148587764309205799303812853457104180875040190778598e-17",
+      "variance_pre_cap": "1.556687372426920935081696228462743851365415862805358e-26",
+      "variance_cap": "0.000000000000002077678122449984061111936418865926717806209636514933",
+      "scaled_derivative_residual": "1.187388292682596754049485920214924528782782969231263e-59",
+      "theta_bracket_left": "3.25943510567201300403843034190508334987220389397463",
+      "theta_bracket_right": "3.25943510567201300403843034190708334987220389397463",
+      "derivative_left": "-4.546454576456734746528708123380779048465284770990124e-28",
+      "derivative_right": "4.546454576456734746528708123278487933046056566478832e-28",
+      "quadrature_vs_antiderivative_K_relative_difference": "0.0",
+      "precap_quadrature_vs_antiderivative_relative_difference": "1.711329201411813969464617614789534166162319346398321e-60",
+      "analytic_vs_automatic_derivative_relative_difference": "3.681846989146544491031785497419010506945222695623879e-57",
+      "finite_objective_probe_count": 40,
+      "finite_objective_probes_above_candidate": true,
+      "derivative_negative_below_candidate": true,
+      "derivative_positive_above_candidate": true,
+      "scope": "Numerical stationarity, finite probes and precision refinement; not a global-optimality proof."
+    },
+    {
+      "precision_digits": 60,
+      "sigma": "1e-12",
+      "theta_root": "3.960637282153441777967067661285800858775611207379114",
+      "K_derivative_root": "62.12912163651814820185437257222393368926061546122639",
+      "K_Lambert": "62.12912163651814834190192257225007911611582096080401",
+      "signed_relative_error_Lambert_over_reference_minus_one": "2.254136970088906544042778473418893132559244746077365e-18",
+      "relative_error": "2.254136970088906544042778473418893132559244746077365e-18",
+      "optimized_rms": "0.000000000006186083761350896008525845145509134760258679299511173",
+      "bias_squared": "9.901593205383605292642818255716844754188021026697486e-25",
+      "variance_pre_cap": "1.535007189885134639849472413249717514191477919127141e-39",
+      "variance_cap": "3.727747298191088725713455270496252689934965514251172e-23",
+      "scaled_derivative_residual": "-7.671805895479276797518373476860923345592989982723051e-60",
+      "theta_bracket_left": "3.960637282153441777967067661284800858775611207379114",
+      "theta_bracket_right": "3.960637282153441777967067661286800858775611207379114",
+      "derivative_left": "-8.123225635171514195394293749003438704827478048205313e-28",
+      "derivative_right": "8.123225635171514195394293748780746059001686785489359e-28",
+      "quadrature_vs_antiderivative_K_relative_difference": "0.0",
+      "precap_quadrature_vs_antiderivative_relative_difference": "1.089027673625699798750211209411521742103294129526204e-60",
+      "analytic_vs_automatic_derivative_relative_difference": "3.713428791681689785195541622491944637466218225380138e-57",
+      "finite_objective_probe_count": 40,
+      "finite_objective_probes_above_candidate": true,
+      "derivative_negative_below_candidate": true,
+      "derivative_positive_above_candidate": true,
+      "scope": "Numerical stationarity, finite probes and precision refinement; not a global-optimality proof."
+    },
+    {
+      "precision_digits": 80,
+      "sigma": "1e-5",
+      "theta_root": "2.61673137850154841979503807602049231202040757426996805189439589699744251",
+      "K_derivative_root": "17.9175005641843969163982358932730119837006694639663933909758467977788986",
+      "K_Lambert": "17.9175007047708555256009725252939230565104457241599694327231932379837345",
+      "signed_relative_error_Lambert_over_reference_minus_one": "0.0000000078463208696766250180530155836388569654852764638351762226915299367588429",
+      "relative_error": "0.0000000078463208696766250180530155836388569654852764638351762226915299367588429",
+      "optimized_rms": "0.000033770820445190266463446175740044073318059434625100714667074276072571108",
+      "bias_squared": "0.0000000000654182930688243983358481760560070579209648523436023751325232771220755358",
+      "variance_pre_cap": "0.0000000000000000650472419722181110529723312006664503528856729029450083740629055695896161",
+      "variance_cap": "0.00000000107504995542521453661856888597666084916285413927539253383875108793532577",
+      "scaled_derivative_residual": "-3.02592491963013962439255099895114487301589152524779771367546515173943358e-79",
+      "theta_bracket_left": "2.61673137850154841979503807602049231202030757426996805189439589699744251",
+      "theta_bracket_right": "2.61673137850154841979503807602049231202050757426996805189439589699744251",
+      "derivative_left": "-2.36920934742847710758709620935478420557124042871207277797355214430627229e-38",
+      "derivative_right": "2.36920934742847710758709620935478420556715249162577141963172655774311534e-38",
+      "quadrature_vs_antiderivative_K_relative_difference": "0.0",
+      "precap_quadrature_vs_antiderivative_relative_difference": "2.53012750637532557384365777230480456185039073176844181201866312602595463e-80",
+      "analytic_vs_automatic_derivative_relative_difference": "2.28470513825691899318082296839123851935090283078690295625285280280143703e-77",
+      "finite_objective_probe_count": 40,
+      "finite_objective_probes_above_candidate": true,
+      "derivative_negative_below_candidate": true,
+      "derivative_positive_above_candidate": true,
+      "scope": "Numerical stationarity, finite probes and precision refinement; not a global-optimality proof."
+    },
+    {
+      "precision_digits": 80,
+      "sigma": "1e-8",
+      "theta_root": "3.25943510567201300403843034190608334987220389397462963238394653225627192",
+      "K_derivative_root": "34.6279687077921807852594968844670652917400929182380615265568588323192645",
+      "K_Lambert": "34.6279687078134318468268907923049966850236441743802140294203733315007183",
+      "signed_relative_error_Lambert_over_reference_minus_one": "0.000000000000613696452908364622889269412611012039309242882737360902016752713615234529",
+      "relative_error": "0.000000000000613696452908364622889269412611012039309242882737360902016752713615234529",
+      "optimized_rms": "0.0000000464668053572509220851425272952028653509484660650288059159045686699690413",
+      "bias_squared": "0.0000000000000000814858776430920579930381285345710418087504019077859750668846613368742652",
+      "variance_pre_cap": "1.55668737242692093508169622846274385136541586280535845183398293832931798e-26",
+      "variance_cap": "0.0000000000000020776781224499840611119364188659267178062096365149326608796556826806389",
+      "scaled_derivative_residual": "1.0554542717938483663261189038036926267840526681704685933268786697939571e-79",
+      "theta_bracket_left": "3.25943510567201300403843034190608334987210389397462963238394653225627192",
+      "theta_bracket_right": "3.25943510567201300403843034190608334987230389397462963238394653225627192",
+      "derivative_left": "-4.54645457645673474652870812332992100854444161428086231172926587432994803e-38",
+      "derivative_right": "4.54645457645673474652870812332992100853434281175882265341382144791519174e-38",
+      "quadrature_vs_antiderivative_K_relative_difference": "0.0",
+      "precap_quadrature_vs_antiderivative_relative_difference": "2.63554948580763080608714351281750475192749034559212688751944075627703607e-80",
+      "analytic_vs_automatic_derivative_relative_difference": "6.362111036760188460662120954200943770962884594645570621396429208022514e-77",
+      "finite_objective_probe_count": 40,
+      "finite_objective_probes_above_candidate": true,
+      "derivative_negative_below_candidate": true,
+      "derivative_positive_above_candidate": true,
+      "scope": "Numerical stationarity, finite probes and precision refinement; not a global-optimality proof."
+    },
+    {
+      "precision_digits": 80,
+      "sigma": "1e-12",
+      "theta_root": "3.96063728215344177796706766128580085877561120737911374280379770284378033",
+      "K_derivative_root": "62.1291216365181482018543725722239336892606154612263853461925397054838274",
+      "K_Lambert": "62.1291216365181483419019225722500791161158209608040058530066714396699068",
+      "signed_relative_error_Lambert_over_reference_minus_one": "0.00000000000000000225413697008890654404277847341889313255924479056427539979697415935611564",
+      "relative_error": "0.00000000000000000225413697008890654404277847341889313255924479056427539979697415935611564",
+      "optimized_rms": "0.00000000000618608376135089600852584514550913476025867929951117320429068697535068277",
+      "bias_squared": "9.90159320538360529264281825571684475418802102669748601881982751586496104e-25",
+      "variance_pre_cap": "1.53500718988513463984947241324971751419147791912714132435166629217269681e-39",
+      "variance_cap": "0.000000000000000000000037277472981910887257134552704962526899349655142511723136908169733962218",
+      "scaled_derivative_residual": "-3.37214223187311753820469878907546696444426851600740255301623833405223951e-79",
+      "theta_bracket_left": "3.96063728215344177796706766128580085877551120737911374280379770284378033",
+      "theta_bracket_right": "3.96063728215344177796706766128580085877571120737911374280379770284378033",
+      "derivative_left": "-8.12322563517151419539429374889384915615416703732835923753626008811246614e-38",
+      "derivative_right": "8.12322563517151419539429374889384915613213280555751556791032455722331586e-38",
+      "quadrature_vs_antiderivative_K_relative_difference": "0.0",
+      "precap_quadrature_vs_antiderivative_relative_difference": "5.48194293047987207666125850666040988400917991883162392604043677305623503e-80",
+      "analytic_vs_automatic_derivative_relative_difference": "1.28024451822591474036489083278623110829629771027483155688144354176913304e-77",
+      "finite_objective_probe_count": 40,
+      "finite_objective_probes_above_candidate": true,
+      "derivative_negative_below_candidate": true,
+      "derivative_positive_above_candidate": true,
+      "scope": "Numerical stationarity, finite probes and precision refinement; not a global-optimality proof."
+    }
+  ],
+  "precision_refinement": [
+    {
+      "sigma": "1e-5",
+      "K_relative_change": "1.892549596775824534374704944659415683436e-52",
+      "error_relative_change": "2.83816496464459219014892372911876084015e-53"
+    },
+    {
+      "sigma": "1e-8",
+      "K_relative_change": "4.408450497671856888021089448207195583845e-53",
+      "error_relative_change": "2.165598580908828545856584100773225792188e-49"
+    },
+    {
+      "sigma": "1e-12",
+      "K_relative_change": "7.490541211126843344908520186762471149076e-53",
+      "error_relative_change": "1.973567311574786143908415615767757779638e-44"
+    }
+  ],
+  "checks_passed": 69,
+  "checks": [
+    {
+      "id": "60:1e-5:admissible_cap",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "60:1e-5:small_stationarity_residual",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "60:1e-5:left_sign",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "60:1e-5:right_sign",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "60:1e-5:quadrature_vs_antiderivative_K_relative_difference",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "60:1e-5:precap_quadrature_vs_antiderivative_relative_difference",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "60:1e-5:analytic_vs_automatic_derivative_relative_difference",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "60:1e-5:finite_objective_probes_above_candidate",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "60:1e-5:derivative_negative_below_candidate",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "60:1e-5:derivative_positive_above_candidate",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "60:1e-8:admissible_cap",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "60:1e-8:small_stationarity_residual",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "60:1e-8:left_sign",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "60:1e-8:right_sign",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "60:1e-8:quadrature_vs_antiderivative_K_relative_difference",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "60:1e-8:precap_quadrature_vs_antiderivative_relative_difference",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "60:1e-8:analytic_vs_automatic_derivative_relative_difference",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "60:1e-8:finite_objective_probes_above_candidate",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "60:1e-8:derivative_negative_below_candidate",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "60:1e-8:derivative_positive_above_candidate",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "60:1e-12:admissible_cap",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "60:1e-12:small_stationarity_residual",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "60:1e-12:left_sign",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "60:1e-12:right_sign",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "60:1e-12:quadrature_vs_antiderivative_K_relative_difference",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "60:1e-12:precap_quadrature_vs_antiderivative_relative_difference",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "60:1e-12:analytic_vs_automatic_derivative_relative_difference",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "60:1e-12:finite_objective_probes_above_candidate",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "60:1e-12:derivative_negative_below_candidate",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "60:1e-12:derivative_positive_above_candidate",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "80:1e-5:admissible_cap",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "80:1e-5:small_stationarity_residual",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "80:1e-5:left_sign",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "80:1e-5:right_sign",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "80:1e-5:quadrature_vs_antiderivative_K_relative_difference",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "80:1e-5:precap_quadrature_vs_antiderivative_relative_difference",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "80:1e-5:analytic_vs_automatic_derivative_relative_difference",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "80:1e-5:finite_objective_probes_above_candidate",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "80:1e-5:derivative_negative_below_candidate",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "80:1e-5:derivative_positive_above_candidate",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "80:1e-8:admissible_cap",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "80:1e-8:small_stationarity_residual",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "80:1e-8:left_sign",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "80:1e-8:right_sign",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "80:1e-8:quadrature_vs_antiderivative_K_relative_difference",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "80:1e-8:precap_quadrature_vs_antiderivative_relative_difference",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "80:1e-8:analytic_vs_automatic_derivative_relative_difference",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "80:1e-8:finite_objective_probes_above_candidate",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "80:1e-8:derivative_negative_below_candidate",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "80:1e-8:derivative_positive_above_candidate",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "80:1e-12:admissible_cap",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "80:1e-12:small_stationarity_residual",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "80:1e-12:left_sign",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "80:1e-12:right_sign",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "80:1e-12:quadrature_vs_antiderivative_K_relative_difference",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "80:1e-12:precap_quadrature_vs_antiderivative_relative_difference",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "80:1e-12:analytic_vs_automatic_derivative_relative_difference",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "80:1e-12:finite_objective_probes_above_candidate",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "80:1e-12:derivative_negative_below_candidate",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "80:1e-12:derivative_positive_above_candidate",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "1e-5:60_to_80_K_agreement",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "1e-5:60_to_80_error_agreement",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "1e-8:60_to_80_K_agreement",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "1e-8:60_to_80_error_agreement",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "1e-12:60_to_80_K_agreement",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "1e-12:60_to_80_error_agreement",
+      "passed": true,
+      "details": null
+    },
+    {
+      "id": "1e-5:sigma_matches_frozen_row",
+      "passed": true,
+      "details": {
+        "actual": 1e-05,
+        "reference": 1e-05,
+        "atol": 0.0,
+        "rtol": 0.0,
+        "absolute_difference": 0.0
+      }
+    },
+    {
+      "id": "1e-8:sigma_matches_frozen_row",
+      "passed": true,
+      "details": {
+        "actual": 1e-08,
+        "reference": 1e-08,
+        "atol": 0.0,
+        "rtol": 0.0,
+        "absolute_difference": 0.0
+      }
+    },
+    {
+      "id": "1e-12:sigma_matches_frozen_row",
+      "passed": true,
+      "details": {
+        "actual": 1e-12,
+        "reference": 1e-12,
+        "atol": 0.0,
+        "rtol": 0.0,
+        "absolute_difference": 0.0
+      }
+    }
+  ]
+}
