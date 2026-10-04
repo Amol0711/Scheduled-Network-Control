@@ -1,0 +1,19 @@
+# Generated or local material must stay outside the sealed repository.
+__pycache__/
+*.py[cod]
+*.nbc
+*.nbi
+.venv/
+venv/
+.DS_Store
+._*
+Thumbs.db
+.env
+.env.*
+*.log
+*.aux
+*.out
+*.toc
+simulation_results/
+results/
+new_results/
